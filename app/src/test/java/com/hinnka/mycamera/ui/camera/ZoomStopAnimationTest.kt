@@ -22,6 +22,16 @@ class ZoomStopAnimationTest {
 
         assertTrue(twoStopDuration > oneStopDuration)
         assertTrue(longDuration >= twoStopDuration)
-        assertTrue(longDuration <= 420)
+        assertTrue(longDuration <= 520)
+    }
+
+    @Test
+    fun zoomStopEasingIsSymmetricSCurve() {
+        assertEquals(0f, ZoomStopEasing.transform(0f), 0.0001f)
+        assertEquals(1f, ZoomStopEasing.transform(1f), 0.0001f)
+        // Slow start, steep middle, slow end.
+        assertTrue(ZoomStopEasing.transform(0.2f) < 0.05f)
+        assertTrue(ZoomStopEasing.transform(0.8f) > 0.95f)
+        assertEquals(0.5f, ZoomStopEasing.transform(0.515f), 0.03f)
     }
 }

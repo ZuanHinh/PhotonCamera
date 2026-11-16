@@ -548,7 +548,7 @@ fun CameraScreen(
                 targetValue = 1f,
                 animationSpec = tween(
                     durationMillis = resolveZoomStopAnimationDurationMillis(startZoom, targetZoom),
-                    easing = FastOutSlowInEasing
+                    easing = ZoomStopEasing
                 )
             ) {
                 viewModel.setZoomRatio(

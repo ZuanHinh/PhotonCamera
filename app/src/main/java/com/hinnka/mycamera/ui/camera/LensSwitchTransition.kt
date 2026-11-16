@@ -5,7 +5,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.PixelCopy
 import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
@@ -196,7 +195,7 @@ internal class LensSwitchTransitionState(
             val progress = Animatable(0f)
             progress.animateTo(
                 1f,
-                tween(resolveZoomStopAnimationDurationMillis(visibleZoom, targetZoom), easing = FastOutSlowInEasing),
+                tween(resolveZoomStopAnimationDurationMillis(visibleZoom, targetZoom), easing = ZoomStopEasing),
             ) {
                 // Logarithmic interpolation matches the existing in-lens zoom animation.
                 scale = interpolateZoomRatio(startScale, targetZoom / snapshotZoom, value)
