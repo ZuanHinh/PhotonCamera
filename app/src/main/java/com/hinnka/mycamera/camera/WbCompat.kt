@@ -17,11 +17,3 @@ object WbCompat {
             ?: CameraMetadata.CONTROL_AWB_MODE_AUTO
     }
 }
-cat > ~/wb.sed << 'EOF'
-/val resolvedAnchor = anchor ?: return applyAutoWhiteBalanceSettings(/i\
-        if (android.os.Build.MANUFACTURER.equals("HUAWEI", true) || android.os.Build.MANUFACTURER.equals("HONOR", true)) {\
-            builder.set(CaptureRequest.CONTROL_AWB_MODE, WbCompat.presetMode(state.awbTemperature.toFloat(), availableAwbModes))\
-            builder.set(CaptureRequest.CONTROL_AWB_LOCK, false)\
-            builder.set(CaptureRequest.COLOR_CORRECTION_MODE, CameraMetadata.COLOR_CORRECTION_MODE_FAST)\
-            return\
-        }
