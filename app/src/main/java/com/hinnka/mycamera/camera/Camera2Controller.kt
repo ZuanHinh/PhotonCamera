@@ -3356,7 +3356,7 @@ class Camera2Controller(private val context: Context) {
                 "RAW_CROP_TRACE stage=CAMERA2_REQUEST isRaw=$isRawCapture " +
                     "selectedCamera=${currentState.currentCameraId} openCamera=${getActiveOpenCameraId()} " +
                     "physicalOutput=$activeOutputPhysicalCameraId stateZoom=${currentState.zoomRatio} " +
-                    "requestZoom=${builder.get(CaptureRequest.CONTROL_ZOOM_RATIO)} " +
+                    "requestZoom=${com.hinnka.mycamera.camera.ZoomCompat.requestZoom(builder)} " +
                     "requestScalerCrop=${builder.get(CaptureRequest.SCALER_CROP_REGION)} " +
                     "requestDistortion=${builder.get(CaptureRequest.DISTORTION_CORRECTION_MODE)}"
             )
@@ -4341,7 +4341,7 @@ class Camera2Controller(private val context: Context) {
         try {
             val characteristics = resolveZoomRequestCharacteristics(openCameraId)
             val maxZoom = characteristics.get(CameraCharacteristics.SCALER_AVAILABLE_MAX_DIGITAL_ZOOM) ?: 1f
-            val zoomRatioRange = characteristics.get(CameraCharacteristics.CONTROL_ZOOM_RATIO_RANGE)
+            val zoomRatioRange = com.hinnka.mycamera.camera.ZoomCompat.range(characteristics)
             val minZoom = zoomRatioRange?.lower ?: 1f
             val maxSupportedZoom = zoomRatioRange?.upper ?: maxZoom
             val userZoomRatio = state.zoomRatio.coerceIn(minZoom, maxSupportedZoom)
@@ -4378,7 +4378,7 @@ class Camera2Controller(private val context: Context) {
         resetCropAtUnitZoom: Boolean
     ) {
         if (shouldUseControlZoomRatio(zoomRatioRange)) {
-            builder.set(CaptureRequest.CONTROL_ZOOM_RATIO, zoomRatio)
+            com.hinnka.mycamera.camera.ZoomCompat.setRequestZoom(builder, zoomRatio)
             return
         }
 
@@ -4386,7 +4386,7 @@ class Camera2Controller(private val context: Context) {
         if (zoomRatio <= 1f && !resetCropAtUnitZoom) return
 
         zoomRatioRange?.let {
-            builder.set(CaptureRequest.CONTROL_ZOOM_RATIO, 1f)
+            com.hinnka.mycamera.camera.ZoomCompat.setRequestZoom(builder, 1f)
         }
         builder.set(CaptureRequest.SCALER_CROP_REGION, buildCenteredCropRegion(activeRect, zoomRatio))
     }
@@ -5582,7 +5582,7 @@ class Camera2Controller(private val context: Context) {
         try {
             val characteristics = resolveZoomRequestCharacteristics(openCameraId)
             val maxZoom = characteristics.get(CameraCharacteristics.SCALER_AVAILABLE_MAX_DIGITAL_ZOOM) ?: 1f
-            val zoomRatioRange = characteristics.get(CameraCharacteristics.CONTROL_ZOOM_RATIO_RANGE)
+            val zoomRatioRange = com.hinnka.mycamera.camera.ZoomCompat.range(characteristics)
             val minZoom = zoomRatioRange?.lower ?: 1f
             val maxSupportedZoom = zoomRatioRange?.upper ?: maxZoom
             val clampedRatio = requestedRatio.coerceIn(minZoom, maxSupportedZoom)
@@ -5839,7 +5839,7 @@ class Camera2Controller(private val context: Context) {
             "Focus terminal: afState=$afState " +
                 "source=${_state.value.focusPointSource} " +
                 "afRegions=${result.get(CaptureResult.CONTROL_AF_REGIONS)?.contentToString()} " +
-                "zoom=${result.get(CaptureResult.CONTROL_ZOOM_RATIO)} " +
+                "zoom=${com.hinnka.mycamera.camera.ZoomCompat.resultZoom(result)} " +
                 "crop=${result.get(CaptureResult.SCALER_CROP_REGION)} " +
                 "lensDistance=${result.get(CaptureResult.LENS_FOCUS_DISTANCE)}"
         )
@@ -5996,7 +5996,7 @@ class Camera2Controller(private val context: Context) {
                 characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION) ?: getSensorOrientation()
             val lensFacing =
                 characteristics.get(CameraCharacteristics.LENS_FACING) ?: getLensFacing()
-            val zoomRatioRange = characteristics.get(CameraCharacteristics.CONTROL_ZOOM_RATIO_RANGE)
+            val zoomRatioRange = com.hinnka.mycamera.camera.ZoomCompat.range(characteristics)
             val zoomMode = if (shouldUseControlZoomRatio(zoomRatioRange)) {
                 PreviewMeteringZoomMode.POST_ZOOM_ACTIVE_ARRAY
             } else {
@@ -6076,7 +6076,7 @@ class Camera2Controller(private val context: Context) {
                 "Focus mapping: ui=($normalizedX,$normalizedY) " +
                     "source=$source " +
                     "coordinateCamera=${activeOutputPhysicalCameraId ?: openCameraId} " +
-                    "zoomMode=$zoomMode requestZoom=${builder.get(CaptureRequest.CONTROL_ZOOM_RATIO)} " +
+                    "zoomMode=$zoomMode requestZoom=${com.hinnka.mycamera.camera.ZoomCompat.requestZoom(builder)} " +
                     "requestCrop=$requestedScalerCrop active=$activeRect " +
                     "visible=${mapping.visibleRegion} center=(${mapping.centerX},${mapping.centerY}) " +
                     "af=$afRect metering=$meteringMode"

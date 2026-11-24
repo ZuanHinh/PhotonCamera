@@ -1836,7 +1836,7 @@ object GalleryManager {
                     TAG,
                     "RAW_CROP_TRACE stage=PREPARE_RESULT image=${metadata.width}x${metadata.height} " +
                         "scalerCrop=${captureResult?.get(CaptureResult.SCALER_CROP_REGION)} " +
-                        "zoomRatio=${captureResult?.get(CaptureResult.CONTROL_ZOOM_RATIO)} " +
+                        "zoomRatio=${captureResult?.let { com.hinnka.mycamera.camera.ZoomCompat.resultZoom(it) }} " +
                         "distortionMode=${captureResult?.get(CaptureResult.DISTORTION_CORRECTION_MODE)} " +
                         "legacyDerivedCrop=$cropRegion"
                 )
@@ -1900,7 +1900,7 @@ object GalleryManager {
         if (captureResult == null) return null
 
         val scalerCropRegion = captureResult.get(CaptureResult.SCALER_CROP_REGION)
-        val zoomRatio = captureResult.get(CaptureResult.CONTROL_ZOOM_RATIO) ?: 1f
+        val zoomRatio = com.hinnka.mycamera.camera.ZoomCompat.resultZoom(captureResult) ?: 1f
         if (zoomRatio <= 1f) {
             return scalerCropRegion
         }

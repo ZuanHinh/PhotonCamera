@@ -1299,7 +1299,7 @@ class CameraDiscovery(private val context: Context) {
             characteristics.get(CameraCharacteristics.CONTROL_AE_COMPENSATION_STEP)?.toFloat() ?: 0f
 
         // Camera2 zoom ratio range 可以表达逻辑多摄的 <1x 超广角范围
-        val zoomRatioRange = characteristics.get(CameraCharacteristics.CONTROL_ZOOM_RATIO_RANGE)
+        val zoomRatioRange = com.hinnka.mycamera.camera.ZoomCompat.range(characteristics)
         val maxZoom = zoomRatioRange?.upper
             ?: characteristics.get(CameraCharacteristics.SCALER_AVAILABLE_MAX_DIGITAL_ZOOM)
             ?: 1f

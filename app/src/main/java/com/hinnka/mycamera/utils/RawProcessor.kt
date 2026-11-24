@@ -438,7 +438,7 @@ object RawProcessor {
         val targetWidth = if (bufferIncludesPixelArray) preCorrection.width() else width
         val targetHeight = if (bufferIncludesPixelArray) preCorrection.height() else height
         val scalerCropRegion = captureResult.get(CaptureResult.SCALER_CROP_REGION)
-        val zoomRatio = captureResult.get(CaptureResult.CONTROL_ZOOM_RATIO) ?: 1f
+        val zoomRatio = com.hinnka.mycamera.camera.ZoomCompat.resultZoom(captureResult) ?: 1f
         val distortionMode = captureResult.get(CaptureResult.DISTORTION_CORRECTION_MODE)
         val hasDistortionCorrectionControl = characteristics.get(
             CameraCharacteristics.DISTORTION_CORRECTION_AVAILABLE_MODES

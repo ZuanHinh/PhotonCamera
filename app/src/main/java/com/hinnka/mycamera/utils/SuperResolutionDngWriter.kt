@@ -573,7 +573,7 @@ object SuperResolutionDngWriter {
             CameraMetadata.FLASH_STATE_UNAVAILABLE -> 16
             else -> if (characteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE) == true) 0 else 16
         }
-        val digitalZoomRatio = captureMetadataResult.get(CaptureResult.CONTROL_ZOOM_RATIO)
+        val digitalZoomRatio = com.hinnka.mycamera.camera.ZoomCompat.resultZoom(captureMetadataResult)
             ?.takeIf { it.isFinite() && it > 1f }
             ?.toDouble()
             ?: 0.0
