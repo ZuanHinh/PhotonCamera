@@ -9,7 +9,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - run: chmod +x gradlew && ./gradlew assembleDebug
+      - run: chmod +x gradlew && ./gradlew assembleDefaultDebug
       - uses: actions/upload-artifact@v4
         with:
           name: PhotonCamera-debug
