@@ -25,6 +25,14 @@ class MyCameraApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        val prevHandler = Thread.getDefaultUncaughtExceptionHandler()
+        Thread.setDefaultUncaughtExceptionHandler { t, e ->
+            try {
+                val f = java.io.File(getExternalFilesDir(null), "crash.txt")
+                f.appendText("=== ${java.util.Date()} thread=${t.name}\n${android.util.Log.getStackTraceString(e)}\n")
+            } catch (_: Throwable) {}
+            prevHandler?.uncaughtException(t, e)
+        }
         StartupTrace.mark("Application.onCreate start")
         instance = this
         StartupTrace.measure("BuglyHelper.init") {
