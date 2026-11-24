@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         applicationId = "com.hinnka.mycamera"
-        minSdk = 30
+        minSdk = 29
         targetSdk = 36
         versionCode = 150
         versionName = "1.27.2.1"
