@@ -2096,7 +2096,10 @@ class Camera2Controller(private val context: Context) {
                     timingCharacteristics = openCharacteristics,
                 )
                 isManualSensorSupported =
-                    capabilities.contains(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_MANUAL_SENSOR)
+                    & ||
+                    (openCharacteristics.get(CameraCharacteristics.CONTROL_AE_AVAILABLE_MODES)?.contains(CaptureRequest.CONTROL_AE_MODE_OFF) == true &&
+                            openCharacteristics.get(CameraCharacteristics.SENSOR_INFO_SENSITIVITY_RANGE) != null &&
+                            openCharacteristics.get(CameraCharacteristics.SENSOR_INFO_EXPOSURE_TIME_RANGE) != null)
                 isManualPostProcessingSupported =
                     capabilities.contains(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_MANUAL_POST_PROCESSING)
                 isFlashSupported = openCharacteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE) ?: false
