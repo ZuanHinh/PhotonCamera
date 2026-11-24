@@ -237,12 +237,6 @@ add_library(my-native-lib SHARED
     dng_hdrnet_pgtm_jni.cpp
     raw_signal_stats_jni.cpp
     mgc_strength_map_scaler.cpp
-    mgc_eis_reconstruction_jni.cpp
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_eis_reconstruction.cpp"
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_type18_engine.cpp"
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_type18_gyro.cpp"
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_type18_lookahead.cpp"
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_type18_projection.cpp"
     jpeg_export_jni.cpp
     jpeg_r_encoder.cpp
     yuv_utils.cpp
@@ -289,12 +283,6 @@ set_source_files_properties(
 # crop-feasibility and homography arithmetic. It also rejects non-finite JNI
 # output. Keep that path independent of the target-wide fast-math setting.
 set_source_files_properties(
-    mgc_eis_reconstruction_jni.cpp
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_eis_reconstruction.cpp"
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_type18_engine.cpp"
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_type18_gyro.cpp"
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_type18_lookahead.cpp"
-    "${MGC_EIS_RECONSTRUCTION_DIR}/mgc_type18_projection.cpp"
     PROPERTIES
     COMPILE_OPTIONS "-fno-fast-math;-ffp-contract=off"
 )
