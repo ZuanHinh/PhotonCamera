@@ -4148,6 +4148,12 @@ class Camera2Controller(private val context: Context) {
         isCapture: Boolean,
         anchor: ManualWhiteBalanceAnchor?
     ) {
+        if (android.os.Build.MANUFACTURER.equals("HUAWEI", true) || android.os.Build.MANUFACTURER.equals("HONOR", true)) {
+            builder.set(CaptureRequest.CONTROL_AWB_MODE, WbCompat.presetMode(state.awbTemperature.toFloat(), availableAwbModes))
+            builder.set(CaptureRequest.CONTROL_AWB_LOCK, false)
+            builder.set(CaptureRequest.COLOR_CORRECTION_MODE, CameraMetadata.COLOR_CORRECTION_MODE_FAST)
+            return
+        }
         val resolvedAnchor = anchor ?: return applyAutoWhiteBalanceSettings(
             builder = builder,
             state = state.copy(awbMode = CameraMetadata.CONTROL_AWB_MODE_AUTO),
