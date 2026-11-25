@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         applicationId = "com.hinnka.mycamera"
-        minSdk = 29
+        minSdk = 28
         targetSdk = 36
         versionCode = 150
         versionName = "1.27.2.1"
@@ -198,7 +198,7 @@ dependencies {
     "googleImplementation"(libs.google.billing)
     "googleImplementation"(libs.google.billing.ktx)
 
-    // Reorderable for drag-and-drop list reordering
+    // Reorderable for drag-and-drop list on API 28+
     implementation("sh.calvin.reorderable:reorderable:2.4.3")
 
     // Media3 for video playback and export
