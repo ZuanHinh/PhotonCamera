@@ -665,6 +665,24 @@ class Camera2Controller(private val context: Context) {
     }
 
     private val previewCallback = object : CameraCaptureSession.CaptureCallback() {
+    override fun onCaptureFailed(
+        session: CameraCaptureSession,
+        request: CaptureRequest,
+        failure: android.hardware.camera2.CaptureFailure
+    ) {
+        PLog.w(TAG, "preview onCaptureFailed: frame=${failure.frameNumber}, reason=${failure.reason}")
+        super.onCaptureFailed(session, request, failure)
+    }
+
+    override fun onCaptureBufferLost(
+        session: CameraCaptureSession,
+        request: CaptureRequest,
+        target: Surface,
+        frameNumber: Long
+    ) {
+        PLog.w(TAG, "preview onCaptureBufferLost: frame=$frameNumber")
+        super.onCaptureBufferLost(session, request, target, frameNumber)
+    }
         override fun onCaptureStarted(
             session: CameraCaptureSession,
             request: CaptureRequest,
@@ -691,6 +709,7 @@ class Camera2Controller(private val context: Context) {
             result: TotalCaptureResult
         ) {
             super.onCaptureCompleted(session, request, result)
+            com.hinnka.mycamera.camera.PreviewHeartbeat.tick()
 
             realtimeStabilizationCoordinator.submitCaptureResult(
                 result = result,
