@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentLinkedQueue
  */
 object PLog {
     private const val TAG = "LogManager"
-    private const val MAX_LOG_SIZE = 500 // 最多保存500条日志
+    private const val MAX_LOG_SIZE = 4000 // 最多保存500条日志
 
     // 使用线程安全的队列存储日志
     private val logQueue = ConcurrentLinkedQueue<LogEntry>()
@@ -102,6 +102,7 @@ object PLog {
      * 添加日志到队列
      */
     private fun addLog(level: LogLevel, tag: String, message: String, throwable: Throwable? = null) {
+        if (tag == "OrientationObserver" || message.startsWith("Auto NR")) return
         val entry = LogEntry(
             timestamp = System.currentTimeMillis(),
             level = level,
