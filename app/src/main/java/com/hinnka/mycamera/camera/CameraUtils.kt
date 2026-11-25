@@ -119,9 +119,10 @@ object CameraUtils {
     ): Size {
         return try {
             val map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
-            val sizes = map?.getOutputSizes(format)
+            val allSizes = map?.getOutputSizes(format)
                 ?: map?.getOutputSizes(ImageFormat.YUV_420_888)
                 ?: arrayOf(Size(1920, 1080))
+            val sizes = CapCompat.limit(allSizes)
             val sensorRatio = aspectRatio.getValue(true)
 
             // 寻找比例最匹配传感器原生比例
@@ -130,7 +131,7 @@ object CameraUtils {
                 abs(ratio - sensorRatio) < 0.01
             }
 
-            val bestMatching = matchingSizes.filter { it.height >= 2160 }.maxByOrNull { it.width * it.height }
+            val bestMatching = matchingSizes.filter { (it.height >= 2160 || CapCompat.active()) }.maxByOrNull { it.width * it.height }
 
             if (bestMatching != null) return bestMatching
 
