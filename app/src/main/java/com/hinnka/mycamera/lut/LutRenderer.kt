@@ -560,6 +560,7 @@ class LutRenderer(context: Context) : GLSurfaceView.Renderer {
             setDefaultBufferSize(previewWidth, previewHeight)
             setOnFrameAvailableListener {
                 frameAvailable.set(true)
+                com.hinnka.mycamera.camera.PreviewHeartbeat.surfaceFrame()
                 if (previewStabilizationUseCase == null) {
                     onRequestRender?.invoke()
                 }
