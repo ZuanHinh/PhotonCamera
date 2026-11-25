@@ -34,6 +34,15 @@ class MyCameraApplication : Application() {
             prevHandler?.uncaughtException(t, e)
         }
         StartupTrace.mark("Application.onCreate start")
+        Thread {
+            while (true) {
+                try {
+                    java.io.File(getExternalFilesDir(null), "plog.txt")
+                        .writeText(com.hinnka.mycamera.utils.PLog.getFormattedLogs())
+                } catch (_: Throwable) {}
+                try { Thread.sleep(3000) } catch (_: InterruptedException) { return@Thread }
+            }
+        }.apply { isDaemon = true; start() }
         instance = this
         StartupTrace.measure("BuglyHelper.init") {
             BuglyHelper.init(this)
