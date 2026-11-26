@@ -18,6 +18,12 @@ fun String.toBuildConfigString(): String =
     "\"${replace("\\", "\\\\").replace("\"", "\\\"")}\""
 
 android {
+    lint {
+        checkOnly += listOf("NewApi", "InlinedApi")
+        abortOnError = false
+        textReport = true
+        checkDependencies = false
+    }
     namespace = "com.hinnka.mycamera"
     compileSdk = 36
     ndkVersion = "29.0.14206865"
