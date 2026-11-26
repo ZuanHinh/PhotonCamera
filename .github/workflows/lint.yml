@@ -1,5 +1,9 @@
 name: Lint API 28
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/lint.yml"
 jobs:
   lint:
     runs-on: ubuntu-latest
