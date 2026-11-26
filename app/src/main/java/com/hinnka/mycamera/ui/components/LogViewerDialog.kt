@@ -401,6 +401,12 @@ private fun downloadLogs(context: Context, text: String): Result<String> = runCa
         SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
     }.txt"
     val resolver = context.contentResolver
+    if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) {
+        val dir = context.getExternalFilesDir("logs") ?: context.filesDir
+        dir.mkdirs()
+        java.io.File(dir, fileName).writeText(text)
+        return@runCatching fileName
+    }
     val values = ContentValues().apply {
         put(MediaStore.Downloads.DISPLAY_NAME, fileName)
         put(MediaStore.Downloads.MIME_TYPE, "text/plain")

@@ -3422,6 +3422,7 @@ class Camera2Controller(private val context: Context) {
         values: Map<VendorCaptureKey, Int>,
         target: String
     ) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) return
         values.forEach { (key, value) ->
             val normalizedValue = key.normalizeValue(value)
             try {
@@ -3471,6 +3472,7 @@ class Camera2Controller(private val context: Context) {
         keys: List<CustomVendorKey>,
         target: String
     ) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) return
         keys.forEach { key ->
             try {
                 when (key.valueType) {

@@ -3859,7 +3859,7 @@ class RawDemosaicProcessor {
         val hdrCanvas = hdrBitmap?.let(::Canvas)
         val copyPaint = Paint().apply {
             isFilterBitmap = false
-            blendMode = BlendMode.SRC
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) { blendMode = BlendMode.SRC } else { xfermode = android.graphics.PorterDuffXfermode(android.graphics.PorterDuff.Mode.SRC) }
         }
         val maximumOutputWidth = config.tiles.maxOf { it.outputCore.width }
         val maximumOutputHeight = config.tiles.maxOf { it.outputCore.height }

@@ -221,7 +221,7 @@ class ApplyLutActivity : AppCompatActivity() {
                 finish()
             }.onFailure { throwable ->
                 when {
-                    throwable is RecoverableSecurityException -> {
+                    android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q && throwable is RecoverableSecurityException -> {
                         requestWritePermission(resolvedUris)
                     }
                     resolvedUris.any(::isMediaStoreUri) && throwable is SecurityException -> {
@@ -629,7 +629,7 @@ class ApplyLutActivity : AppCompatActivity() {
             return resolved
         }
         val resolved = runCatching {
-            if (isMediaStoreUri(uri)) {
+            if (isMediaStoreUri(uri) && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
                 MediaStore.getMediaUri(this, uri)
             } else {
                 null

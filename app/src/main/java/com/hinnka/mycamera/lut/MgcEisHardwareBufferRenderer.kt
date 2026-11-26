@@ -127,6 +127,7 @@ internal class MgcEisHardwareBufferRenderer(private val tag: String) {
      * let a later camera frame overwrite pixels while this draw still reads them.
      */
     private fun awaitSourceSampling() {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) { GLES30.glFinish(); return }
         val display = EGL14.eglGetCurrentDisplay()
         if (display == EGL14.EGL_NO_DISPLAY) {
             GLES30.glFinish()

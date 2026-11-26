@@ -1424,7 +1424,7 @@ class GalleryViewModel(application: Application) : AndroidViewModel(application)
             if (photo.isRawLikeMedia()) {
                 return GalleryManager.loadBitmap(context, photo.thumbnailUri, maxEdge = 512, preserveHdr = false)
             }
-            if (photo.thumbnailUri.scheme == "content") {
+            if (photo.thumbnailUri.scheme == "content" && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
                 context.contentResolver.loadThumbnail(photo.thumbnailUri, android.util.Size(512, 512), null)
             } else {
                 val inputStream = context.contentResolver.openInputStream(photo.thumbnailUri)

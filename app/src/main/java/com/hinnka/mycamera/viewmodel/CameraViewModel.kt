@@ -2837,7 +2837,7 @@ class CameraViewModel(application: Application) : AndroidViewModel(application) 
             it.isLowRamDevice || it.memoryClass < MIN_PREWARM_MEMORY_CLASS_MB
         } ?: true
         val powerSave = powerManager?.isPowerSaveMode ?: true
-        val thermalStatus = powerManager?.currentThermalStatus ?: PowerManager.THERMAL_STATUS_NONE
+        val thermalStatus = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) powerManager?.currentThermalStatus ?: PowerManager.THERMAL_STATUS_NONE else 0
         val thermallyConstrained = thermalStatus >= PowerManager.THERMAL_STATUS_MODERATE
         val allowed = !constrainedMemory && !powerSave && !thermallyConstrained
         if (!allowed) {

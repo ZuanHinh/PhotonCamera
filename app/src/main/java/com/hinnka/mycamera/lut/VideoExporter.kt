@@ -478,7 +478,7 @@ private fun detectVideoSourceFormat(context: Context, uri: Uri): VideoSourceForm
 
     try {
         val retriever = MediaMetadataRetriever()
-        retriever.use {
+        com.hinnka.mycamera.camera.Compat29b.useRetriever(retriever) {
             it.setDataSource(context, uri)
             width = width.takeIf { value -> value > 0 }
                 ?: it.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH)?.toIntOrNull()
