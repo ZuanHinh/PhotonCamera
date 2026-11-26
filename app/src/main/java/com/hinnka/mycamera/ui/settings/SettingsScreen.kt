@@ -6287,3 +6287,57 @@ private fun FocalLengthChip(
         }
     }
 }
+
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+@Composable
+fun PhotoCapSetting(modifier: Modifier = Modifier) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    var selected by remember { mutableStateOf(com.hinnka.mycamera.camera.CapCompat.getMp(context)) }
+    val options = listOf(0 to "Tắt (tối đa)", 8 to "8 MP", 5 to "5 MP", 2 to "2 MP")
+
+    Column(modifier = modifier.fillMaxWidth()) {
+        Text(
+            text = "Giới hạn độ phân giải ảnh (Huawei tele)",
+            color = Color.White,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Normal,
+            modifier = Modifier.padding(bottom = 4.dp)
+        )
+        Text(
+            text = "Hạ độ phân giải luồng chụp để camera tele không bị đơ khi zoom qua 3x. Đổi xong hãy chuyển sang ultrawide rồi về 1x (hoặc mở lại app) để áp dụng.",
+            color = Color.White.copy(alpha = 0.6f),
+            fontSize = 13.sp,
+            lineHeight = 18.sp,
+            modifier = Modifier.padding(bottom = 12.dp)
+        )
+        FlowRow(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            options.forEach { (mp, label) ->
+                val isSel = selected == mp
+                Box(
+                    modifier = Modifier
+                        .width(96.dp)
+                        .height(40.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(if (isSel) Color(0xFFFF6B35) else Color.White.copy(alpha = 0.1f))
+                        .clickable {
+                            com.hinnka.mycamera.camera.CapCompat.setMp(context, mp)
+                            selected = mp
+                        },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = label,
+                        color = if (isSel) Color.White else Color.White.copy(alpha = 0.7f),
+                        fontSize = 12.sp,
+                        fontWeight = if (isSel) FontWeight.Bold else FontWeight.Normal,
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+        }
+    }
+}
