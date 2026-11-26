@@ -1092,7 +1092,7 @@ suspend fun saveCollage(
             val contentValues = ContentValues().apply {
                 put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
                 put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
-                put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DCIM + "/PhotonCamera")
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DCIM + "/PhotonCamera") else put(MediaStore.MediaColumns.DATA, com.hinnka.mycamera.gallery.Compat28.legacyDataPath(Environment.DIRECTORY_DCIM + "/PhotonCamera", filename))
             }
             
             val uri = context.contentResolver.insert(

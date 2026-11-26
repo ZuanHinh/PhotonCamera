@@ -1097,9 +1097,9 @@ object GalleryManager {
             val contentValues = ContentValues().apply {
                 put(MediaStore.MediaColumns.DISPLAY_NAME, displayName)
                 put(MediaStore.MediaColumns.MIME_TYPE, mimeType)
-                put(MediaStore.MediaColumns.RELATIVE_PATH, relativePath)
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) put(MediaStore.MediaColumns.RELATIVE_PATH, relativePath) else put(MediaStore.MediaColumns.DATA, com.hinnka.mycamera.gallery.Compat28.legacyDataPath(relativePath, displayName))
                 dateTaken?.let { put(MediaStore.MediaColumns.DATE_TAKEN, it) }
-                put(MediaStore.MediaColumns.IS_PENDING, 1)
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) put(MediaStore.MediaColumns.IS_PENDING, 1)
             }
             context.contentResolver.insert(collectionUri, contentValues)
         }
@@ -1111,6 +1111,7 @@ object GalleryManager {
         uri: Uri,
     ): Boolean {
         if (destination.savePath == PhotoSavePath.EXTERNAL_TREE) return true
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) return true
 
         return try {
             val updatedRows = context.contentResolver.update(

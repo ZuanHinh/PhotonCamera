@@ -38,10 +38,10 @@ object VideoMediaStoreWriter {
         val values = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
             put(MediaStore.MediaColumns.MIME_TYPE, "video/mp4")
-            put(MediaStore.MediaColumns.RELATIVE_PATH, recordingPath.relativePath)
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) put(MediaStore.MediaColumns.RELATIVE_PATH, recordingPath.relativePath) else put(MediaStore.MediaColumns.DATA, com.hinnka.mycamera.gallery.Compat28.legacyDataPath(recordingPath.relativePath, fileName))
             put(MediaStore.MediaColumns.DATE_ADDED, dateTakenMs / 1000)
             put(MediaStore.MediaColumns.DATE_MODIFIED, dateTakenMs / 1000)
-            put(MediaStore.MediaColumns.IS_PENDING, 1)
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) put(MediaStore.MediaColumns.IS_PENDING, 1)
         }
 
         val uri = context.contentResolver.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values)
@@ -49,7 +49,7 @@ object VideoMediaStoreWriter {
         return try {
             val descriptor = context.contentResolver.openFileDescriptor(uri, "rw")
                 ?: throw IllegalStateException("Cannot open output descriptor")
-            PendingVideo(uri, descriptor, isMediaStorePending = true)
+            PendingVideo(uri, descriptor, isMediaStorePending = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q)
         } catch (e: Exception) {
             PLog.e(TAG, "Failed to create pending video output", e)
             context.contentResolver.delete(uri, null, null)
