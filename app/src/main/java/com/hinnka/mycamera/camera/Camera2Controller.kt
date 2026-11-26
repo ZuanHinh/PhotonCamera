@@ -485,7 +485,7 @@ class Camera2Controller(private val context: Context) {
         )
         val channelNoiseProfile = captureChannelNoiseProfile(result)
         val framePhysicalCameraId = activeOutputPhysicalCameraId
-            ?: result.get(CaptureResult.LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID)
+            ?: Compat29.activePhysicalId(result)
         val sensorCharacteristics = framePhysicalCameraId
             ?.let { cameraId ->
                 getCameraCharacteristicsOrNull(cameraId, "RAW frame gain limits")
@@ -8340,8 +8340,7 @@ class Camera2Controller(private val context: Context) {
         try {
             val width = image.width
             val height = image.height
-            val reportedPhysicalCameraId = result
-                ?.get(CaptureResult.LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID)
+            val reportedPhysicalCameraId = Compat29.activePhysicalId(result)
             val effectivePhysicalCameraId = activeOutputPhysicalCameraId
                 ?: reportedPhysicalCameraId
             var effectiveCharacteristics = effectivePhysicalCameraId

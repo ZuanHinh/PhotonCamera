@@ -44,7 +44,7 @@ class EstimatedSdrGainmapProducer : GainmapProducer {
             val srcY = ((y + 0.5f) * sdrBase.height / height).toInt().coerceIn(0, sdrBase.height - 1)
             for (x in 0 until width) {
                 val srcX = ((x + 0.5f) * sdrBase.width / width).toInt().coerceIn(0, sdrBase.width - 1)
-                val color = sdrBase.getColor(srcX, srcY)
+                val color = com.hinnka.mycamera.camera.Compat29.pixelColor(sdrBase, srcX, srcY)
                 val encodedSrgbLuma = EstimatedSdrGainmapMath.encodedSrgbLuma(
                     red = color.red(),
                     green = color.green(),

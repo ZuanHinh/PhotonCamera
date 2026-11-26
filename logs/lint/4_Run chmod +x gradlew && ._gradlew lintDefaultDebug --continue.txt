@@ -1,46 +1,375 @@
-﻿2026-11-26T10:23:42.0588564Z ##[group]Run chmod +x gradlew && ./gradlew lintDefaultDebug --continue
-2026-11-26T10:23:42.0589223Z [36;1mchmod +x gradlew && ./gradlew lintDefaultDebug --continue[0m
-2026-11-26T10:23:42.3374258Z shell: /usr/bin/bash -e {0}
-2026-11-26T10:23:42.3374610Z env:
-2026-11-26T10:23:42.3374912Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
-2026-11-26T10:23:42.3375370Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
-2026-11-26T10:23:42.3375735Z ##[endgroup]
-2026-11-26T10:23:44.4359567Z Downloading https://services.gradle.org/distributions/gradle-8.13-bin.zip
-2026-11-26T10:23:46.2409015Z .............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
-2026-11-26T10:23:47.3618769Z 
-2026-11-26T10:23:47.3619886Z Welcome to Gradle 8.13!
-2026-11-26T10:23:47.3620396Z 
-2026-11-26T10:23:47.3626398Z Here are the highlights of this release:
-2026-11-26T10:23:47.3627001Z  - Daemon JVM auto-provisioning
-2026-11-26T10:23:47.3627639Z  - Enhancements for Scala plugin and JUnit testing
-2026-11-26T10:23:47.3628198Z  - Improvements for build authors and plugin developers
-2026-11-26T10:23:47.3628584Z 
-2026-11-26T10:23:47.3628935Z For more details see https://docs.gradle.org/8.13/release-notes.html
-2026-11-26T10:23:47.3629374Z 
-2026-11-26T10:23:47.4562568Z Starting a Gradle Daemon (subsequent builds will be faster)
-2026-11-26T10:23:47.4563106Z Daemon JVM discovery is an incubating feature.
-2026-11-26T10:24:32.8575491Z 
-2026-11-26T10:24:32.8576310Z FAILURE: Build failed with an exception.
-2026-11-26T10:24:32.8576679Z 
-2026-11-26T10:24:32.8576824Z * Where:
-2026-11-26T10:24:32.8577293Z Build file '/home/runner/work/PhotonCamera/PhotonCamera/build.gradle.kts' line: 2
-2026-11-26T10:24:32.8577716Z 
-2026-11-26T10:24:32.8577880Z * What went wrong:
-2026-11-26T10:24:32.8578429Z Plugin [id: 'com.google.devtools.ksp', version: '2.3.6', apply: false] was not found in any of the following sources:
-2026-11-26T10:24:32.8578980Z 
-2026-11-26T10:24:32.8579217Z - Gradle Core Plugins (plugin is not in 'org.gradle' namespace)
-2026-11-26T10:24:32.8579735Z - Included Builds (No included builds contain this plugin)
-2026-11-26T10:24:32.8580422Z - Plugin Repositories (could not resolve plugin artifact 'com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:2.3.6')
-2026-11-26T10:24:32.8581559Z   Searched in the following repositories:
-2026-11-26T10:24:32.8581925Z     Google
-2026-11-26T10:24:32.8582564Z     MavenRepo
-2026-11-26T10:24:32.8582850Z     Gradle Central Plugin Repository
-2026-11-26T10:24:32.8583134Z 
-2026-11-26T10:24:32.8583260Z * Try:
-2026-11-26T10:24:32.8583656Z > Run with --stacktrace option to get the stack trace.
-2026-11-26T10:24:32.8584069Z > Run with --info or --debug option to get more log output.
-2026-11-26T10:24:32.8589260Z > Run with --scan to get full insights.
-2026-11-26T10:24:32.8589777Z > Get more help at https://help.gradle.org.
-2026-11-26T10:24:32.8590022Z 
-2026-11-26T10:24:32.8590149Z BUILD FAILED in 48s
-2026-11-26T10:24:33.2165952Z ##[error]Process completed with exit code 1.
+﻿2026-11-26T11:04:49.8033322Z ##[group]Run chmod +x gradlew && ./gradlew lintDefaultDebug --continue
+2026-11-26T11:04:49.8033883Z [36;1mchmod +x gradlew && ./gradlew lintDefaultDebug --continue[0m
+2026-11-26T11:04:49.8057603Z shell: /usr/bin/bash -e {0}
+2026-11-26T11:04:49.8057969Z env:
+2026-11-26T11:04:49.8058277Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-26T11:04:49.8058718Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-26T11:04:49.8059088Z ##[endgroup]
+2026-11-26T11:04:53.0968114Z Downloading https://services.gradle.org/distributions/gradle-8.13-bin.zip
+2026-11-26T11:04:55.4388857Z .............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+2026-11-26T11:04:56.6390114Z 
+2026-11-26T11:04:56.6391186Z Welcome to Gradle 8.13!
+2026-11-26T11:04:56.6401703Z 
+2026-11-26T11:04:56.6402460Z Here are the highlights of this release:
+2026-11-26T11:04:56.6403152Z  - Daemon JVM auto-provisioning
+2026-11-26T11:04:56.6403754Z  - Enhancements for Scala plugin and JUnit testing
+2026-11-26T11:04:56.6404271Z  - Improvements for build authors and plugin developers
+2026-11-26T11:04:56.6404626Z 
+2026-11-26T11:04:56.6404942Z For more details see https://docs.gradle.org/8.13/release-notes.html
+2026-11-26T11:04:56.6405350Z 
+2026-11-26T11:04:56.7381020Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-11-26T11:04:56.7381572Z Daemon JVM discovery is an incubating feature.
+2026-11-26T11:05:43.2396185Z > Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+2026-11-26T11:05:43.2401972Z > Task :app:preBuild UP-TO-DATE
+2026-11-26T11:05:43.2402581Z > Task :app:preDefaultDebugBuild UP-TO-DATE
+2026-11-26T11:05:43.3385119Z > Task :app:generateDefaultDebugBuildConfig
+2026-11-26T11:05:56.1392134Z > Task :app:generateDefaultDebugResValues
+2026-11-26T11:05:56.1392854Z > Task :app:checkDefaultDebugAarMetadata
+2026-11-26T11:05:56.2382271Z > Task :app:mapDefaultDebugSourceSetPaths
+2026-11-26T11:05:56.2383184Z > Task :app:generateDefaultDebugResources
+2026-11-26T11:05:57.7392166Z > Task :app:packageDefaultDebugResources
+2026-11-26T11:05:59.3382589Z > Task :app:mergeDefaultDebugResources
+2026-11-26T11:05:59.6395948Z > Task :app:createDefaultDebugCompatibleScreenManifests
+2026-11-26T11:05:59.6452123Z > Task :app:extractDeepLinksDefaultDebug
+2026-11-26T11:05:59.7381470Z > Task :app:parseDefaultDebugLocalResources
+2026-11-26T11:06:00.0380833Z 
+2026-11-26T11:06:00.0396784Z > Task :app:processDefaultDebugMainManifest
+2026-11-26T11:06:00.0404511Z [com.google.ai.edge.litert:litert-support:1.0.1] /home/runner/.gradle/caches/8.13/transforms/55a1d39a68714cd673efdca825071897/transformed/litert-support-1.0.1/AndroidManifest.xml Warning:
+2026-11-26T11:06:00.0406954Z 	Namespace 'org.tensorflow.lite.support' is used in multiple modules and/or libraries: com.google.ai.edge.litert:litert-support:1.0.1, com.google.ai.edge.litert:litert-support-api:1.0.1. Please ensure that all modules and libraries have a unique namespace. For more information, See https://developer.android.com/studio/build/configure-app-module#set-namespace
+2026-11-26T11:06:00.1379650Z 
+2026-11-26T11:06:00.1381991Z > Task :app:processDefaultDebugManifest
+2026-11-26T11:06:02.0382281Z > Task :app:preDefaultDebugAndroidTestBuild SKIPPED
+2026-11-26T11:06:02.0382795Z > Task :app:generateDefaultDebugAndroidTestResValues
+2026-11-26T11:06:02.0383198Z > Task :app:processDefaultDebugManifestForPackage
+2026-11-26T11:06:02.0383591Z > Task :app:javaPreCompileDefaultDebug
+2026-11-26T11:06:03.3381242Z > Task :app:extractProguardFiles
+2026-11-26T11:06:03.3381742Z > Task :app:preDefaultDebugUnitTestBuild UP-TO-DATE
+2026-11-26T11:06:03.7401780Z > Task :app:processDefaultDebugResources
+2026-11-26T11:06:20.9392799Z > Task :app:kspDefaultDebugKotlin
+2026-11-26T11:06:50.9396537Z > Task :app:compileDefaultDebugKotlin
+2026-11-26T11:08:04.8400802Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/camera/Camera2Controller.kt:8353:47 'val physicalCameraResults: (Mutable)Map<String!, CaptureResult!>!' is deprecated. Deprecated in Java.
+2026-11-26T11:08:04.8427528Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/camera/Camera2Controller.kt:8373:65 'val physicalCameraResults: (Mutable)Map<String!, CaptureResult!>!' is deprecated. Deprecated in Java.
+2026-11-26T11:08:04.8429638Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/ExifWriter.kt:179:49 'static field TAG_ISO_SPEED_RATINGS: String' is deprecated. Deprecated in Java.
+2026-11-26T11:08:04.8431429Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/MediaMetadata.kt:555:66 'static field TAG_ISO_SPEED_RATINGS: String' is deprecated. Deprecated in Java.
+2026-11-26T11:08:04.8452705Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/CubeLutParser.kt:62:37 Unnecessary non-null assertion (!!) on a non-null receiver of type 'FloatArray'.
+2026-11-26T11:08:04.8455093Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/CubeLutParser.kt:63:37 Unnecessary non-null assertion (!!) on a non-null receiver of type 'FloatArray'.
+2026-11-26T11:08:04.8457750Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/CubeLutParser.kt:64:37 Unnecessary non-null assertion (!!) on a non-null receiver of type 'FloatArray'.
+2026-11-26T11:08:04.8459431Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/CubeLutParser.kt:86:65 Unnecessary non-null assertion (!!) on a non-null receiver of type 'FloatArray'.
+2026-11-26T11:08:04.8461326Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/CubeLutParser.kt:88:37 Unnecessary non-null assertion (!!) on a non-null receiver of type 'FloatArray'.
+2026-11-26T11:08:04.8463599Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/CubeLutParser.kt:89:37 Unnecessary non-null assertion (!!) on a non-null receiver of type 'FloatArray'.
+2026-11-26T11:08:04.8465192Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/CubeLutParser.kt:90:37 Unnecessary non-null assertion (!!) on a non-null receiver of type 'FloatArray'.
+2026-11-26T11:08:04.8466799Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/LutConverter.kt:445:65 Unnecessary non-null assertion (!!) on a non-null receiver of type 'ShortArray'.
+2026-11-26T11:08:04.8468685Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/LutConverter.kt:450:41 Unnecessary non-null assertion (!!) on a non-null receiver of type 'ShortArray'.
+2026-11-26T11:08:04.8470745Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/creator/LutCreatorScreen.kt:93:58 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+2026-11-26T11:08:04.8473728Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/synthesis/LutSynthesisScreen.kt:148:44 'fun centerAlignedTopAppBarColors(containerColor: Color = ..., scrolledContainerColor: Color = ..., navigationIconContentColor: Color = ..., titleContentColor: Color = ..., actionIconContentColor: Color = ...): TopAppBarColors' is deprecated. Use topAppBarColors instead.
+2026-11-26T11:08:04.8476506Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/synthesis/LutSynthesisScreen.kt:453:45 'val outlinedButtonBorder: BorderStroke' is deprecated. Please use the version that takes an `enabled` param to get the `BorderStroke` with the correct opacity.
+2026-11-26T11:08:04.8479097Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/synthesis/LutSynthesisScreen.kt:532:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+2026-11-26T11:08:04.8481868Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/phantom/PhantomShortcutActivity.kt:50:9 'fun overridePendingTransition(p0: Int, p1: Int): Unit' is deprecated. Deprecated in Java.
+2026-11-26T11:08:04.8483625Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/screencapture/ScreenCapturePermissionActivity.kt:40:9 'fun overridePendingTransition(p0: Int, p1: Int): Unit' is deprecated. Deprecated in Java.
+2026-11-26T11:08:04.8485296Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/send/ApplyLutActivity.kt:575:32 'fun get(p0: String!): Any?' is deprecated. Deprecated in Java.
+2026-11-26T11:08:04.8486956Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/stabilization/RealtimeStabilizationCoordinator.kt:294:41 'val physicalCameraResults: (Mutable)Map<String!, CaptureResult!>!' is deprecated. Deprecated in Java.
+2026-11-26T11:08:04.8489265Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/ColorWalkScreen.kt:110:44 'fun centerAlignedTopAppBarColors(containerColor: Color = ..., scrolledContainerColor: Color = ..., navigationIconContentColor: Color = ..., titleContentColor: Color = ..., actionIconContentColor: Color = ...): TopAppBarColors' is deprecated. Use topAppBarColors instead.
+2026-11-26T11:08:04.8544399Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/ColorWalkScreen.kt:461:41 Elvis operator (?:) always returns the left operand of non-nullable type 'String'.
+2026-11-26T11:08:04.8546738Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/FilmDetailScreen.kt:60:44 'fun centerAlignedTopAppBarColors(containerColor: Color = ..., scrolledContainerColor: Color = ..., navigationIconContentColor: Color = ..., titleContentColor: Color = ..., actionIconContentColor: Color = ...): TopAppBarColors' is deprecated. Use topAppBarColors instead.
+2026-11-26T11:08:04.8549020Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/FilmDetailScreen.kt:153:49 Unnecessary safe call on a non-null receiver of type 'List<String>'.
+2026-11-26T11:08:04.8581182Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/FilmLibraryScreen.kt:54:44 'fun centerAlignedTopAppBarColors(containerColor: Color = ..., scrolledContainerColor: Color = ..., navigationIconContentColor: Color = ..., titleContentColor: Color = ..., actionIconContentColor: Color = ...): TopAppBarColors' is deprecated. Use topAppBarColors instead.
+2026-11-26T11:08:04.8584234Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/PuzzleScreen.kt:257:44 'fun centerAlignedTopAppBarColors(containerColor: Color = ..., scrolledContainerColor: Color = ..., navigationIconContentColor: Color = ..., titleContentColor: Color = ..., actionIconContentColor: Color = ...): TopAppBarColors' is deprecated. Use topAppBarColors instead.
+2026-11-26T11:08:04.8586843Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/ToolboxScreen.kt:96:44 'fun centerAlignedTopAppBarColors(containerColor: Color = ..., scrolledContainerColor: Color = ..., navigationIconContentColor: Color = ..., titleContentColor: Color = ..., actionIconContentColor: Color = ...): TopAppBarColors' is deprecated. Use topAppBarColors instead.
+2026-11-26T11:08:04.8589203Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/components/CameraInfoDialog.kt:66:21 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+2026-11-26T11:08:04.8596350Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/components/CameraInfoDialog.kt:80:33 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+2026-11-26T11:08:04.8599167Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/gallery/GalleryScreen.kt:769:5 'fun TabRow(selectedTabIndex: Int, modifier: Modifier = ..., containerColor: Color = ..., contentColor: Color = ..., indicator: ComposableFunction1<List<TabPosition>, Unit> = ..., divider: ComposableFunction0<Unit> = ..., tabs: ComposableFunction0<Unit>): Unit' is deprecated. Replaced with PrimaryTabRow and SecondaryTabRow.
+2026-11-26T11:08:04.8602622Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/gallery/GalleryScreen.kt:775:37 'fun Modifier.tabIndicatorOffset(currentTabPosition: TabPosition): Modifier' is deprecated. Solely for use alongside deprecated TabRowDefaults.Indicator method. For recommended PrimaryIndicator and SecondaryIndicator methods, please use TabIndicatorScope.tabIndicatorOffset method.
+2026-11-26T11:08:04.8604852Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/gallery/GalleryScreen.kt:947:28 Redundant call of conversion method.
+2026-11-26T11:08:04.8607765Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/FilterManagementScreen.kt:582:13 'fun ScrollableTabRow(selectedTabIndex: Int, modifier: Modifier = ..., containerColor: Color = ..., contentColor: Color = ..., edgePadding: Dp = ..., indicator: ComposableFunction1<List<TabPosition>, Unit> = ..., divider: ComposableFunction0<Unit> = ..., tabs: ComposableFunction0<Unit>): Unit' is deprecated. Replaced with PrimaryScrollableTabRow and SecondaryScrollableTabRow tab variants.
+2026-11-26T11:08:04.8611595Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/FilterManagementScreen.kt:591:49 'fun Modifier.tabIndicatorOffset(currentTabPosition: TabPosition): Modifier' is deprecated. Solely for use alongside deprecated TabRowDefaults.Indicator method. For recommended PrimaryIndicator and SecondaryIndicator methods, please use TabIndicatorScope.tabIndicatorOffset method.
+2026-11-26T11:08:04.8614471Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/FilterManagementScreen.kt:1273:72 'fun Modifier.menuAnchor(): Modifier' is deprecated. Use overload that takes ExposedDropdownMenuAnchorType and enabled parameters.
+2026-11-26T11:08:04.8616650Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/FilterManagementScreen.kt:1320:72 'fun Modifier.menuAnchor(): Modifier' is deprecated. Use overload that takes ExposedDropdownMenuAnchorType and enabled parameters.
+2026-11-26T11:08:04.8619503Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/FrameEditorScreen.kt:349:13 'fun ScrollableTabRow(selectedTabIndex: Int, modifier: Modifier = ..., containerColor: Color = ..., contentColor: Color = ..., edgePadding: Dp = ..., indicator: ComposableFunction1<List<TabPosition>, Unit> = ..., divider: ComposableFunction0<Unit> = ..., tabs: ComposableFunction0<Unit>): Unit' is deprecated. Replaced with PrimaryScrollableTabRow and SecondaryScrollableTabRow tab variants.
+2026-11-26T11:08:04.8667295Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/FrameEditorScreen.kt:358:49 'fun Modifier.tabIndicatorOffset(currentTabPosition: TabPosition): Modifier' is deprecated. Solely for use alongside deprecated TabRowDefaults.Indicator method. For recommended PrimaryIndicator and SecondaryIndicator methods, please use TabIndicatorScope.tabIndicatorOffset method.
+2026-11-26T11:08:04.8669727Z w: file:///home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/utils/BitmapUtils.kt:125:43 'static fun newInstance(p0: ByteArray, p1: Int, p2: Int, p3: Boolean): BitmapRegionDecoder' is deprecated. Deprecated in Java.
+2026-11-26T11:08:11.9380131Z 
+2026-11-26T11:08:11.9411655Z > Task :app:compileDefaultDebugJavaWithJavac
+2026-11-26T11:08:12.2380090Z > Task :app:bundleDefaultDebugClassesToCompileJar
+2026-11-26T11:08:14.7381493Z > Task :app:generateDefaultDebugLintReportModel
+2026-11-26T11:08:16.1391554Z > Task :app:generateDefaultDebugAndroidTestLintModel
+2026-11-26T11:08:16.2381965Z > Task :app:generateDefaultDebugUnitTestLintModel
+2026-11-26T11:08:30.5387370Z > Task :app:lintAnalyzeDefaultDebugUnitTest
+2026-11-26T11:08:30.5403441Z > Task :app:lintAnalyzeDefaultDebugAndroidTest
+2026-11-26T11:08:46.2401424Z > Task :app:lintAnalyzeDefaultDebug
+2026-11-26T11:09:56.1421114Z 
+2026-11-26T11:09:56.1436225Z > Task :app:lintReportDefaultDebug
+2026-11-26T11:09:56.1439520Z Wrote HTML report to file:///home/runner/work/PhotonCamera/PhotonCamera/app/build/reports/lint-results-defaultDebug.html
+2026-11-26T11:09:56.1440759Z 
+2026-11-26T11:09:56.1441147Z > Task :app:lintDefaultDebug
+2026-11-26T11:09:56.1442865Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/send/ApplyLutActivity.kt:167: Warning: Field requires API level 30 (current min is 28): android.provider.Settings#ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION [InlinedApi]
+2026-11-26T11:09:56.1444313Z                                 Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+2026-11-26T11:09:56.1444885Z                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1446135Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/CameraScreen.kt:388: Warning: Field requires API level 30 (current min is 28): android.provider.Settings#ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION [InlinedApi]
+2026-11-26T11:09:56.1447417Z                         Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+2026-11-26T11:09:56.1447961Z                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1449177Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/CameraScreen.kt:748: Warning: Field requires API level 30 (current min is 28): android.provider.Settings#ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION [InlinedApi]
+2026-11-26T11:09:56.1450639Z                                     Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+2026-11-26T11:09:56.1457299Z                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1458544Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/viewmodel/CameraViewModel.kt:2840: Warning: Field requires API level 29 (current min is 28): android.os.PowerManager#THERMAL_STATUS_NONE [InlinedApi]
+2026-11-26T11:09:56.1459884Z         val thermalStatus = powerManager?.currentThermalStatus ?: PowerManager.THERMAL_STATUS_NONE
+2026-11-26T11:09:56.1460978Z                                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1462182Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/viewmodel/CameraViewModel.kt:2841: Warning: Field requires API level 29 (current min is 28): android.os.PowerManager#THERMAL_STATUS_MODERATE [InlinedApi]
+2026-11-26T11:09:56.1463506Z         val thermallyConstrained = thermalStatus >= PowerManager.THERMAL_STATUS_MODERATE
+2026-11-26T11:09:56.1464136Z                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1465280Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/processor/GlesYuvStacker.kt:170: Warning: Field requires API level 31 (current min is 28): android.graphics.ImageFormat#YCBCR_P010 [InlinedApi]
+2026-11-26T11:09:56.1466519Z     private val highPrecisionInput = inputFormat == ImageFormat.YCBCR_P010
+2026-11-26T11:09:56.1467086Z                                                     ~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1468415Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/processor/GlesYuvStacker.kt:1956: Warning: Field requires API level 31 (current min is 28): android.graphics.ImageFormat#YCBCR_P010 [InlinedApi]
+2026-11-26T11:09:56.1469624Z             return format == ImageFormat.YUV_420_888 || format == ImageFormat.YCBCR_P010
+2026-11-26T11:09:56.1470178Z                                                                   ~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1471499Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/MgcEisHardwareBufferRenderer.kt:137: Warning: Field requires API level 29 (current min is 28): android.opengl.EGL15#EGL_SYNC_FENCE [InlinedApi]
+2026-11-26T11:09:56.1472609Z             EGL15.EGL_SYNC_FENCE,
+2026-11-26T11:09:56.1473069Z             ~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1474202Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/MgcEisHardwareBufferRenderer.kt:149: Warning: Field requires API level 29 (current min is 28): android.opengl.EGL15#EGL_SYNC_FLUSH_COMMANDS_BIT [InlinedApi]
+2026-11-26T11:09:56.1475453Z                 EGL15.EGL_SYNC_FLUSH_COMMANDS_BIT,
+2026-11-26T11:09:56.1475870Z                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1477008Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/MgcEisHardwareBufferRenderer.kt:150: Warning: Field requires API level 29 (current min is 28): android.opengl.EGL15#EGL_FOREVER [InlinedApi]
+2026-11-26T11:09:56.1478137Z                 EGL15.EGL_FOREVER,
+2026-11-26T11:09:56.1478519Z                 ~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1479810Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/SettingsScreen.kt:839: Warning: Field requires API level 30 (current min is 28): android.provider.Settings#ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION [InlinedApi]
+2026-11-26T11:09:56.1481526Z                         Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+2026-11-26T11:09:56.1482090Z                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1483357Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/SettingsScreen.kt:936: Warning: Field requires API level 30 (current min is 28): android.provider.Settings#ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION [InlinedApi]
+2026-11-26T11:09:56.1485569Z                                     Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+2026-11-26T11:09:56.1486163Z                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1487321Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/video/VideoRecorder.kt:400: Warning: Field requires API level 29 (current min is 28): android.media.MediaFormat#KEY_MAX_B_FRAMES [InlinedApi]
+2026-11-26T11:09:56.1488471Z                 setInteger(MediaFormat.KEY_MAX_B_FRAMES, 0)
+2026-11-26T11:09:56.1488939Z                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1489255Z 
+2026-11-26T11:09:56.1489505Z    Explanation for issues of type "InlinedApi":
+2026-11-26T11:09:56.1490055Z    This check scans through all the Android API field references in the
+2026-11-26T11:09:56.1490929Z    application and flags certain constants, such as static final integers and
+2026-11-26T11:09:56.1505359Z    Strings, which were introduced in later versions. These will actually be
+2026-11-26T11:09:56.1506064Z    copied into the class files rather than being referenced, which means that
+2026-11-26T11:09:56.1506695Z    the value is available even when running on older devices. In some cases
+2026-11-26T11:09:56.1507206Z    that's fine, and in other cases it can result in a runtime crash or
+2026-11-26T11:09:56.1507700Z    incorrect behavior. It depends on the context, so consider the code
+2026-11-26T11:09:56.1508296Z    carefully and decide whether it's safe and can be suppressed or whether the
+2026-11-26T11:09:56.1509043Z    code needs to be guarded.
+2026-11-26T11:09:56.1509293Z 
+2026-11-26T11:09:56.1509603Z    If you really want to use this API and don't need to support older devices
+2026-11-26T11:09:56.1510146Z    just set the minSdkVersion in your build.gradle or AndroidManifest.xml
+2026-11-26T11:09:56.1541241Z    files.
+2026-11-26T11:09:56.1549101Z 
+2026-11-26T11:09:56.1549568Z    If your code is deliberately accessing newer APIs, and you have ensured
+2026-11-26T11:09:56.1550241Z    (e.g. with conditional execution) that this code will only ever be called
+2026-11-26T11:09:56.1551067Z    on a supported platform, then you can annotate your class or method with
+2026-11-26T11:09:56.1551696Z    the @TargetApi annotation specifying the local minimum SDK to apply, such
+2026-11-26T11:09:56.1552295Z    as @TargetApi(11), such that this check considers 11 rather than your
+2026-11-26T11:09:56.1552845Z    manifest file's minimum SDK as the required API level.
+2026-11-26T11:09:56.1553291Z 
+2026-11-26T11:09:56.1554181Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/send/ApplyLutActivity.kt:126: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1555394Z         hasManageFilesPermission = Environment.isExternalStorageManager()
+2026-11-26T11:09:56.1555934Z                                                ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1557029Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/send/ApplyLutActivity.kt:138: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1558253Z         hasManageFilesPermission = Environment.isExternalStorageManager()
+2026-11-26T11:09:56.1558800Z                                                ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1559858Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/send/ApplyLutActivity.kt:224: Error: Class requires API level 29 (current min is 28): android.app.RecoverableSecurityException [NewApi]
+2026-11-26T11:09:56.1561159Z                     throwable is RecoverableSecurityException -> {
+2026-11-26T11:09:56.1561628Z                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1562717Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/send/ApplyLutActivity.kt:419: Error: Call requires API level 30 (current min is 28): android.provider.MediaStore#createWriteRequest [NewApi]
+2026-11-26T11:09:56.1564185Z         val request = MediaStore.createWriteRequest(contentResolver, mediaStoreUris)
+2026-11-26T11:09:56.1564941Z                                  ~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1566156Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/send/ApplyLutActivity.kt:633: Error: Call requires API level 29 (current min is 28): android.provider.MediaStore#getMediaUri [NewApi]
+2026-11-26T11:09:56.1567399Z                 MediaStore.getMediaUri(this, uri)
+2026-11-26T11:09:56.1567928Z                            ~~~~~~~~~~~
+2026-11-26T11:09:56.1569155Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/camera/Camera2Controller.kt:488: Error: Field requires API level 29 (current min is 28): android.hardware.camera2.CaptureResult#LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID [NewApi]
+2026-11-26T11:09:56.1570742Z             ?: result.get(CaptureResult.LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID)
+2026-11-26T11:09:56.1578572Z                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1601657Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/camera/Camera2Controller.kt:3431: Error: Call requires API level 29 (current min is 28): android.hardware.camera2.CaptureRequest.Key() [NewApi]
+2026-11-26T11:09:56.1603638Z                             CaptureRequest.Key(key.requestKeyName, Int::class.java),
+2026-11-26T11:09:56.1607753Z                                            ~~~
+2026-11-26T11:09:56.1609039Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/camera/Camera2Controller.kt:3438: Error: Call requires API level 29 (current min is 28): android.hardware.camera2.CaptureRequest.Key() [NewApi]
+2026-11-26T11:09:56.1610566Z                             CaptureRequest.Key(key.requestKeyName, Byte::class.java),
+2026-11-26T11:09:56.1611271Z                                            ~~~
+2026-11-26T11:09:56.1612389Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/camera/Camera2Controller.kt:3479: Error: Call requires API level 29 (current min is 28): android.hardware.camera2.CaptureRequest.Key() [NewApi]
+2026-11-26T11:09:56.1613746Z                             CaptureRequest.Key(key.keyName, Int::class.java),
+2026-11-26T11:09:56.1614286Z                                            ~~~
+2026-11-26T11:09:56.1615436Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/camera/Camera2Controller.kt:3488: Error: Call requires API level 29 (current min is 28): android.hardware.camera2.CaptureRequest.Key() [NewApi]
+2026-11-26T11:09:56.1616829Z                             CaptureRequest.Key(key.keyName, Byte::class.java),
+2026-11-26T11:09:56.1617395Z                                            ~~~
+2026-11-26T11:09:56.1618539Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/camera/Camera2Controller.kt:8344: Error: Field requires API level 29 (current min is 28): android.hardware.camera2.CaptureResult#LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID [NewApi]
+2026-11-26T11:09:56.1619826Z                 ?.get(CaptureResult.LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID)
+2026-11-26T11:09:56.1620696Z                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1621840Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/CameraScreen.kt:382: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1623510Z             val hasFiles = Environment.isExternalStorageManager()
+2026-11-26T11:09:56.1624041Z                                        ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1625100Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/camera/CameraScreen.kt:745: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1626368Z                         } else if (!Environment.isExternalStorageManager()) {
+2026-11-26T11:09:56.1626908Z                                                 ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1628014Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/viewmodel/CameraViewModel.kt:2840: Error: Call requires API level 29 (current min is 28): android.os.PowerManager#getCurrentThermalStatus [NewApi]
+2026-11-26T11:09:56.1629375Z         val thermalStatus = powerManager?.currentThermalStatus ?: PowerManager.THERMAL_STATUS_NONE
+2026-11-26T11:09:56.1630713Z                                           ~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1674474Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/hdr/EstimatedSdrGainmapProducer.kt:47: Error: Call requires API level 29 (current min is 28): android.graphics.Bitmap#getColor [NewApi]
+2026-11-26T11:09:56.1693402Z                 val color = sdrBase.getColor(srcX, srcY)
+2026-11-26T11:09:56.1710968Z                                     ~~~~~~~~
+2026-11-26T11:09:56.1730937Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/frame/FrameManager.kt:237: Error: Call requires API level 33 (current min is 28): android.location.Geocoder#getFromLocation [NewApi]
+2026-11-26T11:09:56.1771404Z         geocoder.getFromLocation(
+2026-11-26T11:09:56.1772022Z                  ~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1773464Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/frame/FrameManager.kt:241: Error: Class requires API level 33 (current min is 28): android.location.Geocoder.GeocodeListener [NewApi]
+2026-11-26T11:09:56.1774603Z             object : Geocoder.GeocodeListener {
+2026-11-26T11:09:56.1775047Z                      ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1776149Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/frame/FrameManager.kt:241: Error: Implicit cast to GeocodeListener requires API level 33 (current min is 28) [NewApi]
+2026-11-26T11:09:56.1777203Z             object : Geocoder.GeocodeListener {
+2026-11-26T11:09:56.1777630Z             ^
+2026-11-26T11:09:56.1778488Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/GalleryManager.kt:475: Error: Call requires API level 29 (current min is 28): android.os.FileObserver() [NewApi]
+2026-11-26T11:09:56.1779438Z             observer = object : FileObserver(
+2026-11-26T11:09:56.1779852Z                                 ~~~~~~~~~~~~
+2026-11-26T11:09:56.1793968Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/GalleryManager.kt:4691: Error: Call requires API level 30 (current min is 28): android.provider.MediaStore#createDeleteRequest [NewApi]
+2026-11-26T11:09:56.1795566Z             MediaStore.createDeleteRequest(context.contentResolver, listOf(uri))
+2026-11-26T11:09:56.1796094Z                        ~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1797177Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/GalleryManager.kt:4795: Error: Call requires API level 30 (current min is 28): android.provider.MediaStore#createDeleteRequest [NewApi]
+2026-11-26T11:09:56.1798196Z             MediaStore.createDeleteRequest(context.contentResolver, mediaStoreUris)
+2026-11-26T11:09:56.1798618Z                        ~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1799551Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/viewmodel/GalleryViewModel.kt:1428: Error: Call requires API level 29 (current min is 28): android.content.ContentResolver#loadThumbnail [NewApi]
+2026-11-26T11:09:56.1800943Z                 context.contentResolver.loadThumbnail(photo.thumbnailUri, android.util.Size(512, 512), null)
+2026-11-26T11:09:56.1801494Z                                         ~~~~~~~~~~~~~
+2026-11-26T11:09:56.1802484Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/viewmodel/GalleryViewModel.kt:1742: Error: Call requires API level 30 (current min is 28): android.provider.MediaStore#createDeleteRequest [NewApi]
+2026-11-26T11:09:56.1803788Z                     val pendingIntent = MediaStore.createDeleteRequest(
+2026-11-26T11:09:56.1804203Z                                                    ~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1805215Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/Jpeg444ExportEncoder.kt:328: Error: Field requires API level 34 (current min is 28): android.graphics.ColorSpace.Named#BT2020_HLG [NewApi]
+2026-11-26T11:09:56.1806264Z             ColorSpace.get(ColorSpace.Named.BT2020_HLG),
+2026-11-26T11:09:56.1806616Z                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1807576Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/Jpeg444ExportEncoder.kt:329: Error: Field requires API level 34 (current min is 28): android.graphics.ColorSpace.Named#BT2020_PQ [NewApi]
+2026-11-26T11:09:56.1808627Z             ColorSpace.get(ColorSpace.Named.BT2020_PQ) -> UHDR_CG_BT_2100
+2026-11-26T11:09:56.1809030Z                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1809951Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/utils/LocationManager.kt:22: Error: Call requires API level 30 (current min is 28): android.location.LocationManager#getCurrentLocation [NewApi]
+2026-11-26T11:09:56.1841523Z                 locationManager.getCurrentLocation(provider, null, context.mainExecutor) { location ->
+2026-11-26T11:09:56.1842291Z                                 ~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1843482Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/components/LogViewerDialog.kt:411: Error: Field requires API level 29 (current min is 28): android.provider.MediaStore.Downloads#EXTERNAL_CONTENT_URI [NewApi]
+2026-11-26T11:09:56.1844566Z         resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)
+2026-11-26T11:09:56.1844989Z                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1845960Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/MgcEisHardwareBufferRenderer.kt:135: Error: Call requires API level 29 (current min is 28): android.opengl.EGL15#eglCreateSync [NewApi]
+2026-11-26T11:09:56.1846938Z         val fence: EGLSync = EGL15.eglCreateSync(
+2026-11-26T11:09:56.1847260Z                                    ~~~~~~~~~~~~~
+2026-11-26T11:09:56.1848189Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/MgcEisHardwareBufferRenderer.kt:141: Error: Field requires API level 29 (current min is 28): android.opengl.EGL15#EGL_NO_SYNC [NewApi]
+2026-11-26T11:09:56.1849196Z         if (fence == EGL15.EGL_NO_SYNC) {
+2026-11-26T11:09:56.1849498Z                      ~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1850655Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/MgcEisHardwareBufferRenderer.kt:146: Error: Call requires API level 29 (current min is 28): android.opengl.EGL15#eglClientWaitSync [NewApi]
+2026-11-26T11:09:56.1851912Z             val waitResult = EGL15.eglClientWaitSync(
+2026-11-26T11:09:56.1852299Z                                    ~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1853306Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/MgcEisHardwareBufferRenderer.kt:157: Error: Call requires API level 29 (current min is 28): android.opengl.EGL15#eglDestroySync [NewApi]
+2026-11-26T11:09:56.1854297Z             EGL15.eglDestroySync(display, fence)
+2026-11-26T11:09:56.1854619Z                   ~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1855582Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/phantom/PhantomShortcutActivity.kt:25: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1857181Z             if (newMode && (!Settings.canDrawOverlays(this@PhantomShortcutActivity) || !Environment.isExternalStorageManager())) {
+2026-11-26T11:09:56.1857900Z                                                                                                     ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1859006Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/phantom/PhantomTileService.kt:39: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1860660Z             if (newMode && (!android.provider.Settings.canDrawOverlays(this@PhantomTileService) || !android.os.Environment.isExternalStorageManager())) {
+2026-11-26T11:09:56.1861385Z                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1862435Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/phantom/PhantomWidgetProvider.kt:77: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1863619Z                     if (newMode && (!Settings.canDrawOverlays(context) || !Environment.isExternalStorageManager())) {
+2026-11-26T11:09:56.1864216Z                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1865190Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:995: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap() [NewApi]
+2026-11-26T11:09:56.1866367Z         val copy = Gainmap(contents)
+2026-11-26T11:09:56.1866647Z                    ~~~~~~~
+2026-11-26T11:09:56.1867433Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:996: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#getRatioMin [NewApi]
+2026-11-26T11:09:56.1868486Z         source.getRatioMin().also { copy.setRatioMin(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1868892Z                ~~~~~~~~~~~
+2026-11-26T11:09:56.1869828Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:996: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#setRatioMin [NewApi]
+2026-11-26T11:09:56.1881929Z         source.getRatioMin().also { copy.setRatioMin(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1882408Z                                          ~~~~~~~~~~~
+2026-11-26T11:09:56.1883437Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:997: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#getRatioMax [NewApi]
+2026-11-26T11:09:56.1884534Z         source.getRatioMax().also { copy.setRatioMax(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1884956Z                ~~~~~~~~~~~
+2026-11-26T11:09:56.1885819Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:997: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#setRatioMax [NewApi]
+2026-11-26T11:09:56.1886829Z         source.getRatioMax().also { copy.setRatioMax(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1887231Z                                          ~~~~~~~~~~~
+2026-11-26T11:09:56.1888158Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:998: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#getGamma [NewApi]
+2026-11-26T11:09:56.1889165Z         source.getGamma().also { copy.setGamma(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1889533Z                ~~~~~~~~
+2026-11-26T11:09:56.1890477Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:998: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#setGamma [NewApi]
+2026-11-26T11:09:56.1891739Z         source.getGamma().also { copy.setGamma(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1892136Z                                       ~~~~~~~~
+2026-11-26T11:09:56.1893079Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:999: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#getEpsilonSdr [NewApi]
+2026-11-26T11:09:56.1894169Z         source.getEpsilonSdr().also { copy.setEpsilonSdr(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1894604Z                ~~~~~~~~~~~~~
+2026-11-26T11:09:56.1895412Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:999: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#setEpsilonSdr [NewApi]
+2026-11-26T11:09:56.1896489Z         source.getEpsilonSdr().also { copy.setEpsilonSdr(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1896937Z                                            ~~~~~~~~~~~~~
+2026-11-26T11:09:56.1897901Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:1000: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#getEpsilonHdr [NewApi]
+2026-11-26T11:09:56.1898967Z         source.getEpsilonHdr().also { copy.setEpsilonHdr(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1899396Z                ~~~~~~~~~~~~~
+2026-11-26T11:09:56.1900821Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:1000: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#setEpsilonHdr [NewApi]
+2026-11-26T11:09:56.1902131Z         source.getEpsilonHdr().also { copy.setEpsilonHdr(it[0], it[1], it[2]) }
+2026-11-26T11:09:56.1902665Z                                            ~~~~~~~~~~~~~
+2026-11-26T11:09:56.1903747Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:1001: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#getMinDisplayRatioForHdrTransition [NewApi]
+2026-11-26T11:09:56.1905085Z         copy.setMinDisplayRatioForHdrTransition(source.getMinDisplayRatioForHdrTransition())
+2026-11-26T11:09:56.1905688Z                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1906835Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:1001: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#setMinDisplayRatioForHdrTransition [NewApi]
+2026-11-26T11:09:56.1908152Z         copy.setMinDisplayRatioForHdrTransition(source.getMinDisplayRatioForHdrTransition())
+2026-11-26T11:09:56.1908705Z              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1909770Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:1002: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#getDisplayRatioForFullHdr [NewApi]
+2026-11-26T11:09:56.1911105Z         copy.setDisplayRatioForFullHdr(source.getDisplayRatioForFullHdr())
+2026-11-26T11:09:56.1911601Z                                               ~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1912744Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/gallery/PhotoProcessor.kt:1002: Error: Call requires API level 34 (current min is 28): android.graphics.Gainmap#setDisplayRatioForFullHdr [NewApi]
+2026-11-26T11:09:56.1913936Z         copy.setDisplayRatioForFullHdr(source.getDisplayRatioForFullHdr())
+2026-11-26T11:09:56.1914389Z              ~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1915382Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/raw/RawDemosaicProcessor.kt:3862: Error: Call requires API level 29 (current min is 28): android.graphics.Paint#setBlendMode [NewApi]
+2026-11-26T11:09:56.1916409Z             blendMode = BlendMode.SRC
+2026-11-26T11:09:56.1916830Z             ~~~~~~~~~
+2026-11-26T11:09:56.1917758Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/raw/RawDemosaicProcessor.kt:3862: Error: Call requires API level 29 (current min is 28): android.graphics.Paint#setBlendMode [NewApi]
+2026-11-26T11:09:56.1918750Z             blendMode = BlendMode.SRC
+2026-11-26T11:09:56.1919050Z                       ~
+2026-11-26T11:09:56.1920001Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/raw/RawDemosaicProcessor.kt:3862: Error: Field requires API level 29 (current min is 28): android.graphics.BlendMode#SRC [NewApi]
+2026-11-26T11:09:56.1925575Z             blendMode = BlendMode.SRC
+2026-11-26T11:09:56.1925929Z                         ~~~~~~~~~~~~~
+2026-11-26T11:09:56.1926906Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/raw/RawDemosaicProcessor.kt:3862: Error: Field requires API level 29 (current min is 28): android.graphics.BlendMode#SRC [NewApi]
+2026-11-26T11:09:56.1927940Z             blendMode = BlendMode.SRC
+2026-11-26T11:09:56.1928240Z                         ~~~~~~~~~~~~~
+2026-11-26T11:09:56.1929336Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/screencapture/ScreenCapturePipActivity.kt:214: Error: Call requires API level 30 (current min is 28): android.view.WindowManager#getCurrentWindowMetrics [NewApi]
+2026-11-26T11:09:56.1930881Z         context.getSystemService(WindowManager::class.java).currentWindowMetrics
+2026-11-26T11:09:56.1931402Z                                                             ~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1938444Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/screencapture/ScreenCapturePipActivity.kt:216: Error: Call requires API level 30 (current min is 28): android.view.WindowMetrics#getBounds [NewApi]
+2026-11-26T11:09:56.1939826Z     val captureWidth = remember(windowMetrics) { windowMetrics.bounds.width().coerceAtLeast(1) }
+2026-11-26T11:09:56.1940646Z                                                                ~~~~~~
+2026-11-26T11:09:56.1941676Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/screencapture/ScreenCapturePipActivity.kt:217: Error: Call requires API level 30 (current min is 28): android.view.WindowMetrics#getBounds [NewApi]
+2026-11-26T11:09:56.1942901Z     val captureHeight = remember(windowMetrics) { windowMetrics.bounds.height().coerceAtLeast(1) }
+2026-11-26T11:09:56.1943455Z                                                                 ~~~~~~
+2026-11-26T11:09:56.1944479Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/SettingsScreen.kt:833: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1945549Z             val hasFiles = Environment.isExternalStorageManager()
+2026-11-26T11:09:56.1945952Z                                        ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1946981Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/SettingsScreen.kt:933: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1948064Z                         } else if (!Environment.isExternalStorageManager()) {
+2026-11-26T11:09:56.1948471Z                                                 ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1949423Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/ui/settings/SettingsScreen.kt:2320: Error: Call requires API level 30 (current min is 28): android.os.Environment#isExternalStorageManager [NewApi]
+2026-11-26T11:09:56.1950807Z                                     if (enabled && (!Settings.canDrawOverlays(context) || !Environment.isExternalStorageManager())) {
+2026-11-26T11:09:56.1951383Z                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-26T11:09:56.1954596Z /home/runner/work/PhotonCamera/PhotonCamera/app/src/main/java/com/hinnka/mycamera/lut/VideoExporter.kt:481: Error: Implicit cast from MediaMetadataRetriever to AutoCloseable requires API level 29 (current min is 28) [NewApi]
+2026-11-26T11:09:56.1955564Z         retriever.use {
+2026-11-26T11:09:56.1955797Z                   ~~~
+2026-11-26T11:09:56.1955925Z 
+2026-11-26T11:09:56.1956042Z    Explanation for issues of type "NewApi":
+2026-11-26T11:09:56.1956406Z    This check scans through all the Android API calls in the application and
+2026-11-26T11:09:56.1956884Z    warns about any calls that are not available on all versions targeted by
+2026-11-26T11:09:56.1957359Z    this application (according to its minimum SDK attribute in the manifest).
+2026-11-26T11:09:56.1957675Z 
+2026-11-26T11:09:56.1957876Z    If you really want to use this API and don't need to support older devices
+2026-11-26T11:09:56.1958374Z    just set the minSdkVersion in your build.gradle or AndroidManifest.xml
+2026-11-26T11:09:56.1958744Z    files.
+2026-11-26T11:09:56.1958859Z 
+2026-11-26T11:09:56.1959059Z    If your code is deliberately accessing newer APIs, and you have ensured
+2026-11-26T11:09:56.1959553Z    (e.g. with conditional execution) that this code will only ever be called
+2026-11-26T11:09:56.1960052Z    on a supported platform, then you can annotate your class or method with
+2026-11-26T11:09:56.1960816Z    the @TargetApi annotation specifying the local minimum SDK to apply, such
+2026-11-26T11:09:56.1961285Z    as @TargetApi(11), such that this check considers 11 rather than your
+2026-11-26T11:09:56.1961907Z    manifest file's minimum SDK as the required API level.
+2026-11-26T11:09:56.1962158Z 
+2026-11-26T11:09:56.1962373Z    If you are deliberately setting android: attributes in style definitions,
+2026-11-26T11:09:56.1962886Z    make sure you place this in a values-vNN folder in order to avoid running
+2026-11-26T11:09:56.1963390Z    into runtime conflicts on certain devices where manufacturers have added
+2026-11-26T11:09:56.1963928Z    custom attributes whose ids conflict with the new ones on later platforms.
+2026-11-26T11:09:56.1964240Z 
+2026-11-26T11:09:56.1964468Z    Similarly, you can use tools:targetApi="11" in an XML file to indicate that
+2026-11-26T11:09:56.1964949Z    the element will only be inflated in an adequate context.
+2026-11-26T11:09:56.1965211Z 
+2026-11-26T11:09:56.1965309Z 60 errors, 13 warnings
+2026-11-26T11:09:56.1965518Z 
+2026-11-26T11:09:56.1965524Z 
+2026-11-26T11:09:56.1965631Z BUILD SUCCESSFUL in 5m 3s
+2026-11-26T11:09:56.1965914Z 29 actionable tasks: 29 executed

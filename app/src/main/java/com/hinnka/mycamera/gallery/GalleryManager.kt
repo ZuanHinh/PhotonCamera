@@ -473,7 +473,7 @@ object GalleryManager {
             }
 
             observer = object : FileObserver(
-                photoDir,
+                photoDir.absolutePath,
                 FileObserver.CREATE or
                     FileObserver.CLOSE_WRITE or
                     FileObserver.MOVED_TO or

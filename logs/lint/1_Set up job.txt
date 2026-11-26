@@ -1,34 +1,34 @@
-﻿2026-11-26T10:23:35.0642148Z Current runner version: '2.338.2'
-2026-11-26T10:23:35.0660443Z ##[group]Runner Image Provisioner
-2026-11-26T10:23:35.0661511Z Hosted Compute Agent
-2026-11-26T10:23:35.0661944Z Version: 20261111.635
-2026-11-26T10:23:35.0662398Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
-2026-11-26T10:23:35.0662929Z Build Date: 2026-11-11T01:49:01Z
-2026-11-26T10:23:35.0663407Z Worker ID: {6c6a2869-15b4-476f-8d67-26b695653a3b}
-2026-11-26T10:23:35.0663933Z Region: us-west-2
-2026-11-26T10:23:35.0664316Z Cloud: AWS
-2026-11-26T10:23:35.0664677Z ##[endgroup]
-2026-11-26T10:23:35.0665643Z ##[group]Operating System
-2026-11-26T10:23:35.0666077Z Ubuntu
-2026-11-26T10:23:35.0666502Z 26.04.1
-2026-11-26T10:23:35.0666863Z LTS
-2026-11-26T10:23:35.0667213Z ##[endgroup]
-2026-11-26T10:23:35.0667617Z ##[group]Runner Image
-2026-11-26T10:23:35.0668036Z Image: ubuntu-26.04
-2026-11-26T10:23:35.0668443Z Version: 20261122.9.1
-2026-11-26T10:23:35.0669187Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261122.9/images/ubuntu/Ubuntu2604-Readme.md
-2026-11-26T10:23:35.0670467Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261122.9
-2026-11-26T10:23:35.0671416Z ##[endgroup]
-2026-11-26T10:23:35.0672522Z ##[group]GITHUB_TOKEN Permissions
-2026-11-26T10:23:35.0674217Z Contents: read
-2026-11-26T10:23:35.0674630Z Metadata: read
-2026-11-26T10:23:35.0675033Z Packages: read
-2026-11-26T10:23:35.0675436Z ##[endgroup]
-2026-11-26T10:23:35.0677214Z Secret source: Actions
-2026-11-26T10:23:35.0677870Z Cache mode: write
-2026-11-26T10:23:35.0678389Z Prepare workflow directory
-2026-11-26T10:23:35.0906369Z Prepare all required actions
-2026-11-26T10:23:35.0942591Z Getting action download info
-2026-11-26T10:23:35.5083483Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
-2026-11-26T10:23:36.6682152Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
-2026-11-26T10:23:37.1275774Z Complete job name: lint
+﻿2026-11-26T11:04:42.7956091Z Current runner version: '2.338.2'
+2026-11-26T11:04:42.7973941Z ##[group]Runner Image Provisioner
+2026-11-26T11:04:42.7974629Z Hosted Compute Agent
+2026-11-26T11:04:42.7975181Z Version: 20261111.635
+2026-11-26T11:04:42.7975642Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T11:04:42.7976188Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T11:04:42.7976715Z Worker ID: {6f87ba6e-3df1-4cbd-9937-3e012e439be9}
+2026-11-26T11:04:42.7977236Z Region: us-west-2
+2026-11-26T11:04:42.7977645Z Cloud: AWS
+2026-11-26T11:04:42.7978041Z ##[endgroup]
+2026-11-26T11:04:42.7979145Z ##[group]Operating System
+2026-11-26T11:04:42.7979638Z Ubuntu
+2026-11-26T11:04:42.7980036Z 26.04.1
+2026-11-26T11:04:42.7980593Z LTS
+2026-11-26T11:04:42.7981067Z ##[endgroup]
+2026-11-26T11:04:42.7981496Z ##[group]Runner Image
+2026-11-26T11:04:42.7981956Z Image: ubuntu-26.04
+2026-11-26T11:04:42.7982379Z Version: 20261116.88.1
+2026-11-26T11:04:42.7983150Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.88/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-26T11:04:42.7984489Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.88
+2026-11-26T11:04:42.7985217Z ##[endgroup]
+2026-11-26T11:04:42.7986147Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T11:04:42.7987881Z Contents: read
+2026-11-26T11:04:42.7988328Z Metadata: read
+2026-11-26T11:04:42.7988896Z Packages: read
+2026-11-26T11:04:42.7989315Z ##[endgroup]
+2026-11-26T11:04:42.7991063Z Secret source: Actions
+2026-11-26T11:04:42.7991825Z Cache mode: write
+2026-11-26T11:04:42.7992310Z Prepare workflow directory
+2026-11-26T11:04:42.8220085Z Prepare all required actions
+2026-11-26T11:04:42.8256029Z Getting action download info
+2026-11-26T11:04:43.2102727Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-26T11:04:44.5355502Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-11-26T11:04:45.0183321Z Complete job name: lint
