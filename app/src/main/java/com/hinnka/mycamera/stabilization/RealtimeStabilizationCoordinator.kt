@@ -10,6 +10,7 @@ import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CaptureResult
 import android.hardware.camera2.TotalCaptureResult
 import android.media.Image
+import android.os.Build
 import android.os.Handler
 import android.os.HandlerThread
 import android.util.SizeF
@@ -283,8 +284,13 @@ class RealtimeStabilizationCoordinator(context: Context) {
         outputPhysicalCameraId: String? = null,
     ) {
         val physicalResult = (result as? TotalCaptureResult)?.let { totalResult ->
-            val physicalId = outputPhysicalCameraId
-                ?: totalResult.get(CaptureResult.LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID)
+            val physicalId = outputPhysicalCameraId ?: if (
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+            ) {
+                totalResult.get(CaptureResult.LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID)
+            } else {
+                null
+            }
             physicalId?.let(totalResult.physicalCameraResults::get)
         }
         fun <T> value(key: CaptureResult.Key<T>): T? =
@@ -515,9 +521,7 @@ class RealtimeStabilizationCoordinator(context: Context) {
     }
 
     private fun onFrameBoundaryLocked(timestampNs: Long) {
-        if (activeSessionCount <= 0 || timestampNs <= 0L ||
-            timestampNs <= lastFrameBoundaryNs
-        ) {
+        if (activeSessionCount <= 0 || timestampNs <= 0L || timestampNs <= lastFrameBoundaryNs) {
             return
         }
         lastFrameBoundaryNs = timestampNs
@@ -544,12 +548,9 @@ class RealtimeStabilizationCoordinator(context: Context) {
     private fun drainFramesLocked(currentBoundaryNs: Long) {
         if (currentBoundaryNs <= 0L || frameBoundaries.size <= 1) return
         val gyroDead = currentBoundaryNs >= lastProcessedGyroTimestampNs + SOURCE_DEAD_TIMEOUT_NS
-        val oisDead = !oisSourceActive ||
-            currentBoundaryNs >= lastOisTimestampNs + SOURCE_DEAD_TIMEOUT_NS
+        val oisDead = !oisSourceActive || currentBoundaryNs >= lastOisTimestampNs + SOURCE_DEAD_TIMEOUT_NS
         val metadataDead = currentBoundaryNs >= latestMetadataTimestampNs + SOURCE_DEAD_TIMEOUT_NS
-        if ((boundaryCount <= 3L || boundaryCount % 15L == 0L) &&
-            lastLoggedBoundaryCount != boundaryCount
-        ) {
+        if ((boundaryCount <= 3L || boundaryCount % 15L == 0L) && lastLoggedBoundaryCount != boundaryCount) {
             lastLoggedBoundaryCount = boundaryCount
             PLog.i(
                 TAG,
@@ -592,19 +593,13 @@ class RealtimeStabilizationCoordinator(context: Context) {
                         "nearest=$nearestMetadataTimestampNs, " +
                         "deltaNs=${nearestMetadataTimestampNs?.minus(frameTimestampNs)}",
                 )
-                appendNativeResultLocked(
-                    MgcEisNativeEngine.FrameResult.Dropped(frameTimestampNs),
-                )
+                appendNativeResultLocked(MgcEisNativeEngine.FrameResult.Dropped(frameTimestampNs))
                 continue
             }
             val currentCalibration = calibration ?: continue
             nativeFrameAttemptCount += 1L
             if (nativeFrameAttemptCount <= 3L || nativeFrameAttemptCount % 30L == 0L) {
-                PLog.i(
-                    TAG,
-                    "Calling MGC native processFrame #$nativeFrameAttemptCount for " +
-                        "sensorTs=${metadata.timestampNs}",
-                )
+                PLog.i(TAG, "Calling MGC native processFrame #$nativeFrameAttemptCount for sensorTs=${metadata.timestampNs}")
             }
             val result = nativeEngine.processFrame(
                 MgcEisNativeEngine.FrameInput(
@@ -618,20 +613,14 @@ class RealtimeStabilizationCoordinator(context: Context) {
                 ),
             )
             if (nativeFrameAttemptCount <= 3L || nativeFrameAttemptCount % 30L == 0L) {
-                PLog.i(
-                    TAG,
-                    "MGC native processFrame #$nativeFrameAttemptCount returned " +
-                        (result?.javaClass?.simpleName ?: "pending"),
-                )
+                PLog.i(TAG, "MGC native processFrame #$nativeFrameAttemptCount returned " + (result?.javaClass?.simpleName ?: "pending"))
             }
             if (result != null) appendNativeResultLocked(result)
         }
     }
 
     private fun logGateLocked(source: String, nextBoundaryNs: Long) {
-        if ((boundaryCount <= 3L || boundaryCount % 15L == 0L) &&
-            lastLoggedGateBoundaryCount != boundaryCount
-        ) {
+        if ((boundaryCount <= 3L || boundaryCount % 15L == 0L) && lastLoggedGateBoundaryCount != boundaryCount) {
             lastLoggedGateBoundaryCount = boundaryCount
             PLog.i(TAG, "MGC feeder waiting for $source to cross nextBoundary=$nextBoundaryNs")
         }
@@ -659,19 +648,12 @@ class RealtimeStabilizationCoordinator(context: Context) {
 
     private fun currentResultSequence(): Long = synchronized(lock) { resultSequence }
 
-    private fun acquireImageForSession(
-        sessionId: Long,
-        timestampNs: Long,
-    ): StabilizationImage? = synchronized(lock) {
+    private fun acquireImageForSession(sessionId: Long, timestampNs: Long): StabilizationImage? = synchronized(lock) {
         val buffered = bufferedImages[timestampNs] ?: return@synchronized null
         if (!buffered.pendingSessionIds.remove(sessionId)) return@synchronized null
         buffered.acquiredLeaseCount += 1
         StabilizationImage(
             timestampNs = timestampNs,
-            // A camera-session teardown may revoke an ImageReader image while
-            // a delayed native result is still queued. Its dimensions were
-            // captured while the image was valid; the renderer then handles a
-            // revoked plane as a dropped frame rather than crashing the GL thread.
             width = buffered.width,
             height = buffered.height,
             image = buffered.image,
@@ -689,17 +671,11 @@ class RealtimeStabilizationCoordinator(context: Context) {
 
     private fun trimBufferedImagesLocked() {
         while (bufferedImages.size > MAX_BUFFERED_STABILIZATION_IMAGES) {
-            val oldestEntry = bufferedImages.entries.firstOrNull {
-                it.value.acquiredLeaseCount == 0
-            } ?: return
+            val oldestEntry = bufferedImages.entries.firstOrNull { it.value.acquiredLeaseCount == 0 } ?: return
             val oldestTimestamp = oldestEntry.key
             val oldest = bufferedImages.remove(oldestTimestamp) ?: continue
             oldest.image.close()
-            PLog.w(
-                TAG,
-                "MGC YUV queue overflow; dropping source image $oldestTimestamp " +
-                    "before native result, queued=${bufferedImages.size}",
-            )
+            PLog.w(TAG, "MGC YUV queue overflow; dropping source image $oldestTimestamp before native result, queued=${bufferedImages.size}")
         }
     }
 
@@ -733,17 +709,8 @@ class RealtimeStabilizationCoordinator(context: Context) {
         @Synchronized
         fun start(): Boolean {
             if (active) return true
-            val startSequence = coordinator.acquire(
-                sessionId = sessionId,
-                onFrameAvailable = onFrameAvailable,
-                frameWidth = frameWidth,
-                frameHeight = frameHeight,
-                strength = strength,
-                lookaheadFrames = lookaheadFrames,
-            )
+            val startSequence = coordinator.acquire(sessionId, onFrameAvailable, frameWidth, frameHeight, strength, lookaheadFrames)
             active = startSequence != null
-            // Registration and the result cursor are captured under the same coordinator lock:
-            // no image can include this session and then have its result skipped by a start race.
             lastConsumedSequence = startSequence ?: 0L
             return active
         }
@@ -769,25 +736,15 @@ class RealtimeStabilizationCoordinator(context: Context) {
                 val image = coordinator.acquireImageForSession(sessionId, timestampNs)
                 if (image == null) {
                     if (next.sequence <= 3L || next.sequence % 30L == 0L) {
-                        PLog.i(
-                            TAG,
-                            "MGC session skipped unbuffered result sequence=${next.sequence}, " +
-                                "timestamp=$timestampNs",
-                        )
+                        PLog.i(TAG, "MGC session skipped unbuffered result sequence=${next.sequence}, timestamp=$timestampNs")
                     }
                     continue
                 }
                 if (next.sequence <= 3L || next.sequence % 30L == 0L) {
-                    PLog.i(
-                        TAG,
-                        "MGC session matched result sequence=${next.sequence}, " +
-                            "latest=${coordinator.currentResultSequence()}, " +
-                            "timestamp=$timestampNs",
-                    )
+                    PLog.i(TAG, "MGC session matched result sequence=${next.sequence}, latest=${coordinator.currentResultSequence()}, timestamp=$timestampNs")
                 }
                 return when (val result = next.result) {
-                    is MgcEisNativeEngine.FrameResult.Dropped ->
-                        StabilizationFrame(timestampNs, null, image)
+                    is MgcEisNativeEngine.FrameResult.Dropped -> StabilizationFrame(timestampNs, null, image)
                     is MgcEisNativeEngine.FrameResult.Stabilized -> StabilizationFrame(
                         timestampNs = timestampNs,
                         transform = AlgorithmicStabilizationTransform(
@@ -804,19 +761,8 @@ class RealtimeStabilizationCoordinator(context: Context) {
             }
         }
 
-        /**
-         * Number of native results not yet consumed by this session.
-         *
-         * GLSurfaceView collapses repeated requestRender() calls into one draw. The preview
-         * renderer uses this authoritative cursor distance after each draw to request the next
-         * draw until every timestamped result has been presented exactly once.
-         */
         @Synchronized
-        fun pendingResultCount(): Int = if (active) {
-            coordinator.pendingNativeResultCount(lastConsumedSequence)
-        } else {
-            0
-        }
+        fun pendingResultCount(): Int = if (active) coordinator.pendingNativeResultCount(lastConsumedSequence) else 0
     }
 }
 
@@ -830,8 +776,7 @@ private fun remapMgcGyro(
     val orientation = Math.floorMod(calibration.sensorOrientationDegrees, 360)
     val frontFacing = calibration.lensFacing == CameraCharacteristics.LENS_FACING_FRONT
     return when {
-        (frontFacing && orientation == 90) || (!frontFacing && orientation == 270) ->
-            Triple(-x, -y, z)
+        (frontFacing && orientation == 90) || (!frontFacing && orientation == 270) -> Triple(-x, -y, z)
         frontFacing && orientation == 0 -> Triple(y, -x, z)
         else -> Triple(x, y, z)
     }
@@ -847,11 +792,7 @@ internal fun remapMgcGyroForTest(
     val calibration = CameraCalibration(
         activeArray = Rect(0, 0, 1, 1),
         physicalSizeMm = SizeF(1f, 1f),
-        lensFacing = if (frontFacing) {
-            CameraCharacteristics.LENS_FACING_FRONT
-        } else {
-            CameraCharacteristics.LENS_FACING_BACK
-        },
+        lensFacing = if (frontFacing) CameraCharacteristics.LENS_FACING_FRONT else CameraCharacteristics.LENS_FACING_BACK,
         sensorOrientationDegrees = sensorOrientationDegrees,
         timestampSource = CameraCharacteristics.SENSOR_INFO_TIMESTAMP_SOURCE_REALTIME,
     )
@@ -861,11 +802,8 @@ internal fun remapMgcGyroForTest(
 }
 
 private fun timestampLagMs(currentTimestampNs: Long, sourceTimestampNs: Long): String =
-    if (sourceTimestampNs <= 0L) {
-        "unset"
-    } else {
-        ((currentTimestampNs - sourceTimestampNs) / 1_000_000.0).toString()
-    }
+    if (sourceTimestampNs <= 0L) "unset"
+    else ((currentTimestampNs - sourceTimestampNs) / 1_000_000.0).toString()
 
 private fun absoluteTimestampDifference(first: Long, second: Long): Long =
     if (first >= second) first - second else second - first
