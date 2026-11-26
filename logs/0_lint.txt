@@ -1,0 +1,211 @@
+﻿2026-11-26T10:23:35.0642558Z Current runner version: '2.338.2'
+2026-11-26T10:23:35.0660484Z ##[group]Runner Image Provisioner
+2026-11-26T10:23:35.0661518Z Hosted Compute Agent
+2026-11-26T10:23:35.0661946Z Version: 20261111.635
+2026-11-26T10:23:35.0662401Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T10:23:35.0662931Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T10:23:35.0663410Z Worker ID: {6c6a2869-15b4-476f-8d67-26b695653a3b}
+2026-11-26T10:23:35.0663936Z Region: us-west-2
+2026-11-26T10:23:35.0664318Z Cloud: AWS
+2026-11-26T10:23:35.0664679Z ##[endgroup]
+2026-11-26T10:23:35.0665648Z ##[group]Operating System
+2026-11-26T10:23:35.0666126Z Ubuntu
+2026-11-26T10:23:35.0666504Z 26.04.1
+2026-11-26T10:23:35.0666866Z LTS
+2026-11-26T10:23:35.0667214Z ##[endgroup]
+2026-11-26T10:23:35.0667619Z ##[group]Runner Image
+2026-11-26T10:23:35.0668038Z Image: ubuntu-26.04
+2026-11-26T10:23:35.0668445Z Version: 20261122.9.1
+2026-11-26T10:23:35.0669347Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261122.9/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-26T10:23:35.0670470Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261122.9
+2026-11-26T10:23:35.0671423Z ##[endgroup]
+2026-11-26T10:23:35.0672525Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T10:23:35.0674224Z Contents: read
+2026-11-26T10:23:35.0674632Z Metadata: read
+2026-11-26T10:23:35.0675035Z Packages: read
+2026-11-26T10:23:35.0675438Z ##[endgroup]
+2026-11-26T10:23:35.0677225Z Secret source: Actions
+2026-11-26T10:23:35.0677872Z Cache mode: write
+2026-11-26T10:23:35.0678392Z Prepare workflow directory
+2026-11-26T10:23:35.0906393Z Prepare all required actions
+2026-11-26T10:23:35.0942628Z Getting action download info
+2026-11-26T10:23:35.5083522Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-26T10:23:36.6682193Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-11-26T10:23:37.1275833Z Complete job name: lint
+2026-11-26T10:23:37.1862269Z ##[group]Run actions/checkout@v4
+2026-11-26T10:23:37.1862812Z with:
+2026-11-26T10:23:37.1863089Z   repository: ZuanHinh/PhotonCamera
+2026-11-26T10:23:37.1865280Z   token: ***
+2026-11-26T10:23:37.1865559Z   ssh-strict: true
+2026-11-26T10:23:37.1865810Z   ssh-user: git
+2026-11-26T10:23:37.1866104Z   persist-credentials: true
+2026-11-26T10:23:37.1866382Z   clean: true
+2026-11-26T10:23:37.1866649Z   sparse-checkout-cone-mode: true
+2026-11-26T10:23:37.1866962Z   fetch-depth: 1
+2026-11-26T10:23:37.1867226Z   fetch-tags: false
+2026-11-26T10:23:37.1867503Z   show-progress: true
+2026-11-26T10:23:37.1867772Z   lfs: false
+2026-11-26T10:23:37.1868036Z   submodules: false
+2026-11-26T10:23:37.1868325Z   set-safe-directory: true
+2026-11-26T10:23:37.1868616Z   allow-unsafe-pr-checkout: false
+2026-11-26T10:23:37.1869227Z ##[endgroup]
+2026-11-26T10:23:39.5817344Z Syncing repository: ZuanHinh/PhotonCamera
+2026-11-26T10:23:39.5818691Z ##[group]Getting Git version info
+2026-11-26T10:23:39.5819218Z Working directory is '/home/runner/work/PhotonCamera/PhotonCamera'
+2026-11-26T10:23:39.5819871Z [command]/usr/bin/git version
+2026-11-26T10:23:39.5832902Z git version 2.56.1
+2026-11-26T10:23:39.5846213Z ##[endgroup]
+2026-11-26T10:23:39.5857364Z Temporarily overriding HOME='/home/runner/work/_temp/4135557a-b6fb-40da-9a6b-fca8da220535' before making global git config changes
+2026-11-26T10:23:39.5858487Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T10:23:39.5860879Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/PhotonCamera/PhotonCamera
+2026-11-26T10:23:39.6315329Z Deleting the contents of '/home/runner/work/PhotonCamera/PhotonCamera'
+2026-11-26T10:23:39.6316456Z ##[group]Initializing the repository
+2026-11-26T10:23:39.6317230Z [command]/usr/bin/git init /home/runner/work/PhotonCamera/PhotonCamera
+2026-11-26T10:23:39.6467094Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-26T10:23:39.6467858Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-26T10:23:39.6468548Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-26T10:23:39.6468971Z hint: call:
+2026-11-26T10:23:39.6469234Z hint:
+2026-11-26T10:23:39.6469591Z hint: 	git config --global init.defaultBranch <name>
+2026-11-26T10:23:39.6469907Z hint:
+2026-11-26T10:23:39.6470277Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-26T10:23:39.6470999Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-26T10:23:39.6471417Z hint:
+2026-11-26T10:23:39.6471688Z hint: 	git branch -m <name>
+2026-11-26T10:23:39.6471972Z hint:
+2026-11-26T10:23:39.6472329Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-26T10:23:39.6495974Z Initialized empty Git repository in /home/runner/work/PhotonCamera/PhotonCamera/.git/
+2026-11-26T10:23:39.6504502Z [command]/usr/bin/git remote add origin https://github.com/ZuanHinh/PhotonCamera
+2026-11-26T10:23:39.6589770Z ##[endgroup]
+2026-11-26T10:23:39.6590942Z ##[group]Disabling automatic garbage collection
+2026-11-26T10:23:39.6594115Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-26T10:23:39.6631520Z ##[endgroup]
+2026-11-26T10:23:39.6632486Z ##[group]Setting up auth
+2026-11-26T10:23:39.6633522Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T10:23:39.6655900Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T10:23:39.9319946Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T10:23:39.9346779Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T10:23:39.9528617Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T10:23:39.9554588Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T10:23:39.9728647Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-26T10:23:39.9754438Z ##[endgroup]
+2026-11-26T10:23:39.9755039Z ##[group]Fetching the repository
+2026-11-26T10:23:39.9761197Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8a38f85a787389b7dcc4832d097810e1cafa4f2f:refs/remotes/origin/dev
+2026-11-26T10:23:41.5555564Z From https://github.com/ZuanHinh/PhotonCamera
+2026-11-26T10:23:41.5557529Z  * [new ref]         8a38f85a787389b7dcc4832d097810e1cafa4f2f -> origin/dev
+2026-11-26T10:23:41.5559070Z ##[endgroup]
+2026-11-26T10:23:41.5559584Z ##[group]Determining the checkout info
+2026-11-26T10:23:41.5562307Z ##[endgroup]
+2026-11-26T10:23:41.5567005Z [command]/usr/bin/git sparse-checkout disable
+2026-11-26T10:23:41.5664074Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-26T10:23:41.5682646Z ##[group]Checking out the ref
+2026-11-26T10:23:41.5683119Z [command]/usr/bin/git checkout --progress --force -B dev refs/remotes/origin/dev
+2026-11-26T10:23:41.7963662Z Switched to a new branch 'dev'
+2026-11-26T10:23:41.7969365Z branch 'dev' set up to track 'origin/dev'.
+2026-11-26T10:23:41.7982424Z ##[endgroup]
+2026-11-26T10:23:41.8035402Z [command]/usr/bin/git log -1 --format=%H
+2026-11-26T10:23:41.8054590Z 8a38f85a787389b7dcc4832d097810e1cafa4f2f
+2026-11-26T10:23:41.8286097Z ##[group]Run actions/setup-java@v4
+2026-11-26T10:23:41.8286375Z with:
+2026-11-26T10:23:41.8286595Z   distribution: temurin
+2026-11-26T10:23:41.8286830Z   java-version: 17
+2026-11-26T10:23:41.8287040Z   java-package: jdk
+2026-11-26T10:23:41.8287304Z   check-latest: false
+2026-11-26T10:23:41.8287517Z   server-id: github
+2026-11-26T10:23:41.8287893Z   server-username: GITHUB_ACTOR
+2026-11-26T10:23:41.8288212Z   server-password: GITHUB_TOKEN
+2026-11-26T10:23:41.8288476Z   overwrite-settings: true
+2026-11-26T10:23:41.8288715Z   job-status: success
+2026-11-26T10:23:41.8290821Z   token: ***
+2026-11-26T10:23:41.8291060Z ##[endgroup]
+2026-11-26T10:23:41.9941456Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+2026-11-26T10:23:41.9948762Z ##[group]Installed distributions
+2026-11-26T10:23:42.0348007Z Resolved Java 17.0.21+2 from tool-cache
+2026-11-26T10:23:42.0348576Z Setting Java 17.0.21+2 as the default
+2026-11-26T10:23:42.0355635Z (node:2356) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T10:23:42.0356306Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T10:23:42.0358185Z Creating toolchains.xml for JDK version 17 from temurin
+2026-11-26T10:23:42.0408607Z Writing to /home/runner/.m2/toolchains.xml
+2026-11-26T10:23:42.0409075Z 
+2026-11-26T10:23:42.0409208Z Java configuration:
+2026-11-26T10:23:42.0409518Z   Distribution: temurin
+2026-11-26T10:23:42.0409886Z   Version: 17.0.21+2
+2026-11-26T10:23:42.0410338Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
+2026-11-26T10:23:42.0410898Z 
+2026-11-26T10:23:42.0411348Z ##[endgroup]
+2026-11-26T10:23:42.0432024Z Creating settings.xml with server-id: github
+2026-11-26T10:23:42.0447740Z Writing to /home/runner/.m2/settings.xml
+2026-11-26T10:23:42.0588579Z ##[group]Run chmod +x gradlew && ./gradlew lintDefaultDebug --continue
+2026-11-26T10:23:42.0589226Z [36;1mchmod +x gradlew && ./gradlew lintDefaultDebug --continue[0m
+2026-11-26T10:23:42.3374290Z shell: /usr/bin/bash -e {0}
+2026-11-26T10:23:42.3374613Z env:
+2026-11-26T10:23:42.3374914Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
+2026-11-26T10:23:42.3375372Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
+2026-11-26T10:23:42.3375738Z ##[endgroup]
+2026-11-26T10:23:44.4359619Z Downloading https://services.gradle.org/distributions/gradle-8.13-bin.zip
+2026-11-26T10:23:46.2409072Z .............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+2026-11-26T10:23:47.3618846Z 
+2026-11-26T10:23:47.3619891Z Welcome to Gradle 8.13!
+2026-11-26T10:23:47.3620399Z 
+2026-11-26T10:23:47.3626425Z Here are the highlights of this release:
+2026-11-26T10:23:47.3627121Z  - Daemon JVM auto-provisioning
+2026-11-26T10:23:47.3627642Z  - Enhancements for Scala plugin and JUnit testing
+2026-11-26T10:23:47.3628201Z  - Improvements for build authors and plugin developers
+2026-11-26T10:23:47.3628588Z 
+2026-11-26T10:23:47.3628938Z For more details see https://docs.gradle.org/8.13/release-notes.html
+2026-11-26T10:23:47.3629376Z 
+2026-11-26T10:23:47.4562633Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-11-26T10:23:47.4563110Z Daemon JVM discovery is an incubating feature.
+2026-11-26T10:24:32.8575561Z 
+2026-11-26T10:24:32.8576317Z FAILURE: Build failed with an exception.
+2026-11-26T10:24:32.8576682Z 
+2026-11-26T10:24:32.8576827Z * Where:
+2026-11-26T10:24:32.8577297Z Build file '/home/runner/work/PhotonCamera/PhotonCamera/build.gradle.kts' line: 2
+2026-11-26T10:24:32.8577719Z 
+2026-11-26T10:24:32.8577884Z * What went wrong:
+2026-11-26T10:24:32.8578475Z Plugin [id: 'com.google.devtools.ksp', version: '2.3.6', apply: false] was not found in any of the following sources:
+2026-11-26T10:24:32.8578982Z 
+2026-11-26T10:24:32.8579220Z - Gradle Core Plugins (plugin is not in 'org.gradle' namespace)
+2026-11-26T10:24:32.8579739Z - Included Builds (No included builds contain this plugin)
+2026-11-26T10:24:32.8580425Z - Plugin Repositories (could not resolve plugin artifact 'com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:2.3.6')
+2026-11-26T10:24:32.8581565Z   Searched in the following repositories:
+2026-11-26T10:24:32.8581929Z     Google
+2026-11-26T10:24:32.8582566Z     MavenRepo
+2026-11-26T10:24:32.8582852Z     Gradle Central Plugin Repository
+2026-11-26T10:24:32.8583137Z 
+2026-11-26T10:24:32.8583263Z * Try:
+2026-11-26T10:24:32.8583660Z > Run with --stacktrace option to get the stack trace.
+2026-11-26T10:24:32.8584071Z > Run with --info or --debug option to get more log output.
+2026-11-26T10:24:32.8589291Z > Run with --scan to get full insights.
+2026-11-26T10:24:32.8589781Z > Get more help at https://help.gradle.org.
+2026-11-26T10:24:32.8590024Z 
+2026-11-26T10:24:32.8590172Z BUILD FAILED in 48s
+2026-11-26T10:24:33.2165982Z ##[error]Process completed with exit code 1.
+2026-11-26T10:24:33.2193568Z ##[group]Run find app/build -name "lint-results*.txt" -exec grep -hE "\[(NewApi|InlinedApi)\]" {} + | sort -u
+2026-11-26T10:24:33.2194081Z [36;1mfind app/build -name "lint-results*.txt" -exec grep -hE "\[(NewApi|InlinedApi)\]" {} + | sort -u[0m
+2026-11-26T10:24:33.2224807Z shell: /usr/bin/bash -e {0}
+2026-11-26T10:24:33.2225011Z env:
+2026-11-26T10:24:33.2225256Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
+2026-11-26T10:24:33.2225605Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
+2026-11-26T10:24:33.2225875Z ##[endgroup]
+2026-11-26T10:24:33.2282663Z find: ‘app/build’: No such file or directory
+2026-11-26T10:24:33.2386004Z Post job cleanup.
+2026-11-26T10:24:33.3399681Z (node:2590) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T10:24:33.3400480Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T10:24:33.3611109Z Post job cleanup.
+2026-11-26T10:24:33.4334377Z [command]/usr/bin/git version
+2026-11-26T10:24:33.4391835Z git version 2.56.1
+2026-11-26T10:24:33.4423702Z Temporarily overriding HOME='/home/runner/work/_temp/5105996a-efdc-4dd0-b5dd-805bc76992ea' before making global git config changes
+2026-11-26T10:24:33.4424985Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T10:24:33.4426027Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/PhotonCamera/PhotonCamera
+2026-11-26T10:24:33.4471382Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T10:24:33.4505005Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T10:24:33.4811743Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T10:24:33.4844954Z http.https://github.com/.extraheader
+2026-11-26T10:24:33.4864391Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-26T10:24:33.4902642Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T10:24:33.5171640Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T10:24:33.5190612Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T10:24:33.5467958Z Cleaning up orphan processes
+2026-11-26T10:24:33.5654485Z Terminate orphan process: pid (2519) (java)
+2026-11-26T10:24:33.5711551Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

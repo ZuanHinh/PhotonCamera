@@ -1,0 +1,73 @@
+﻿2026-11-26T10:23:37.1862227Z ##[group]Run actions/checkout@v4
+2026-11-26T10:23:37.1862809Z with:
+2026-11-26T10:23:37.1863086Z   repository: ZuanHinh/PhotonCamera
+2026-11-26T10:23:37.1865277Z   token: ***
+2026-11-26T10:23:37.1865556Z   ssh-strict: true
+2026-11-26T10:23:37.1865807Z   ssh-user: git
+2026-11-26T10:23:37.1866102Z   persist-credentials: true
+2026-11-26T10:23:37.1866379Z   clean: true
+2026-11-26T10:23:37.1866646Z   sparse-checkout-cone-mode: true
+2026-11-26T10:23:37.1866960Z   fetch-depth: 1
+2026-11-26T10:23:37.1867224Z   fetch-tags: false
+2026-11-26T10:23:37.1867500Z   show-progress: true
+2026-11-26T10:23:37.1867766Z   lfs: false
+2026-11-26T10:23:37.1868033Z   submodules: false
+2026-11-26T10:23:37.1868322Z   set-safe-directory: true
+2026-11-26T10:23:37.1868613Z   allow-unsafe-pr-checkout: false
+2026-11-26T10:23:37.1869223Z ##[endgroup]
+2026-11-26T10:23:39.5817292Z Syncing repository: ZuanHinh/PhotonCamera
+2026-11-26T10:23:39.5818685Z ##[group]Getting Git version info
+2026-11-26T10:23:39.5819095Z Working directory is '/home/runner/work/PhotonCamera/PhotonCamera'
+2026-11-26T10:23:39.5819867Z [command]/usr/bin/git version
+2026-11-26T10:23:39.5832832Z git version 2.56.1
+2026-11-26T10:23:39.5846176Z ##[endgroup]
+2026-11-26T10:23:39.5857311Z Temporarily overriding HOME='/home/runner/work/_temp/4135557a-b6fb-40da-9a6b-fca8da220535' before making global git config changes
+2026-11-26T10:23:39.5858474Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T10:23:39.5860636Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/PhotonCamera/PhotonCamera
+2026-11-26T10:23:39.6315258Z Deleting the contents of '/home/runner/work/PhotonCamera/PhotonCamera'
+2026-11-26T10:23:39.6316448Z ##[group]Initializing the repository
+2026-11-26T10:23:39.6317221Z [command]/usr/bin/git init /home/runner/work/PhotonCamera/PhotonCamera
+2026-11-26T10:23:39.6467018Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-26T10:23:39.6467809Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-26T10:23:39.6468535Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-26T10:23:39.6468967Z hint: call:
+2026-11-26T10:23:39.6469231Z hint:
+2026-11-26T10:23:39.6469588Z hint: 	git config --global init.defaultBranch <name>
+2026-11-26T10:23:39.6469904Z hint:
+2026-11-26T10:23:39.6470274Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-26T10:23:39.6470992Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-26T10:23:39.6471414Z hint:
+2026-11-26T10:23:39.6471685Z hint: 	git branch -m <name>
+2026-11-26T10:23:39.6471969Z hint:
+2026-11-26T10:23:39.6472326Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-26T10:23:39.6495960Z Initialized empty Git repository in /home/runner/work/PhotonCamera/PhotonCamera/.git/
+2026-11-26T10:23:39.6504435Z [command]/usr/bin/git remote add origin https://github.com/ZuanHinh/PhotonCamera
+2026-11-26T10:23:39.6589728Z ##[endgroup]
+2026-11-26T10:23:39.6590928Z ##[group]Disabling automatic garbage collection
+2026-11-26T10:23:39.6594102Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-26T10:23:39.6631487Z ##[endgroup]
+2026-11-26T10:23:39.6632480Z ##[group]Setting up auth
+2026-11-26T10:23:39.6633515Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T10:23:39.6655865Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T10:23:39.9319884Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T10:23:39.9346755Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T10:23:39.9528150Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T10:23:39.9554562Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T10:23:39.9728627Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-26T10:23:39.9754422Z ##[endgroup]
+2026-11-26T10:23:39.9755035Z ##[group]Fetching the repository
+2026-11-26T10:23:39.9761176Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8a38f85a787389b7dcc4832d097810e1cafa4f2f:refs/remotes/origin/dev
+2026-11-26T10:23:41.5555302Z From https://github.com/ZuanHinh/PhotonCamera
+2026-11-26T10:23:41.5557519Z  * [new ref]         8a38f85a787389b7dcc4832d097810e1cafa4f2f -> origin/dev
+2026-11-26T10:23:41.5559066Z ##[endgroup]
+2026-11-26T10:23:41.5559581Z ##[group]Determining the checkout info
+2026-11-26T10:23:41.5562241Z ##[endgroup]
+2026-11-26T10:23:41.5566996Z [command]/usr/bin/git sparse-checkout disable
+2026-11-26T10:23:41.5664040Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-26T10:23:41.5682627Z ##[group]Checking out the ref
+2026-11-26T10:23:41.5683116Z [command]/usr/bin/git checkout --progress --force -B dev refs/remotes/origin/dev
+2026-11-26T10:23:41.7963619Z Switched to a new branch 'dev'
+2026-11-26T10:23:41.7969348Z branch 'dev' set up to track 'origin/dev'.
+2026-11-26T10:23:41.7982389Z ##[endgroup]
+2026-11-26T10:23:41.8035372Z [command]/usr/bin/git log -1 --format=%H
+2026-11-26T10:23:41.8054561Z 8a38f85a787389b7dcc4832d097810e1cafa4f2f

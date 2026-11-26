@@ -1,0 +1,8 @@
+﻿2026-11-26T10:24:33.2193554Z ##[group]Run find app/build -name "lint-results*.txt" -exec grep -hE "\[(NewApi|InlinedApi)\]" {} + | sort -u
+2026-11-26T10:24:33.2194079Z [36;1mfind app/build -name "lint-results*.txt" -exec grep -hE "\[(NewApi|InlinedApi)\]" {} + | sort -u[0m
+2026-11-26T10:24:33.2224795Z shell: /usr/bin/bash -e {0}
+2026-11-26T10:24:33.2225008Z env:
+2026-11-26T10:24:33.2225252Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
+2026-11-26T10:24:33.2225603Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
+2026-11-26T10:24:33.2225873Z ##[endgroup]
+2026-11-26T10:24:33.2282638Z find: ‘app/build’: No such file or directory
