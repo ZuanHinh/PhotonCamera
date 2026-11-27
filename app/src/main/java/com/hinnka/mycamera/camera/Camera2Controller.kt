@@ -5615,7 +5615,7 @@ class Camera2Controller(private val context: Context) {
             val zoomRatioRange = com.hinnka.mycamera.camera.ZoomCompat.range(characteristics)
             val minZoom = zoomRatioRange?.lower ?: 1f
             val maxSupportedZoom = zoomRatioRange?.upper ?: maxZoom
-            val clampedRatio = requestedRatio.coerceIn(minZoom, maxSupportedZoom)
+            val clampedRatio = requestedRatio.coerceIn(minZoom, maxSupportedZoom).coerceAtMost(TeleGuard.maxZoom(_state.value.captureMode == CaptureMode.VIDEO, _state.value.videoConfig.resolution).coerceAtLeast(minZoom))
 
             _state.value = _state.value.copy(zoomRatio = clampedRatio)
             if (recreateSessionForPhysicalZoomIfNeeded(_state.value)) {
