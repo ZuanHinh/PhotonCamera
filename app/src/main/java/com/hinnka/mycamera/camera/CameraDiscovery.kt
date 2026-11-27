@@ -1000,7 +1000,7 @@ class CameraDiscovery(private val context: Context) {
 
         if (sensorDiagonal <= 0) return 0f
 
-        return focalLength * filmDiagonal / sensorDiagonal
+        return CameraLabelFix.adjust(focalLength * filmDiagonal / sensorDiagonal, characteristics.get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_BACK)
     }
 
     /**

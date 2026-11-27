@@ -5651,7 +5651,7 @@ class Camera2Controller(private val context: Context) {
     }
 
     private fun sanitizeZoomRatio(ratio: Float): Float {
-        return if (ratio.isFinite()) ratio.coerceAtLeast(0.01f) else 1f
+        return if (ratio.isFinite()) ratio.coerceAtLeast(0.01f).coerceAtMost(TeleGuard.maxZoom(_state.value.captureMode == CaptureMode.VIDEO, _state.value.videoConfig.resolution)) else 1f
     }
 
     private fun recreateSessionForPhysicalZoomIfNeeded(state: CameraState): Boolean {
@@ -6287,6 +6287,8 @@ class Camera2Controller(private val context: Context) {
             )
         )
         refreshVideoCapabilities()
+        val teleGuard = TeleGuard.maxZoom(_state.value.captureMode == CaptureMode.VIDEO, resolution)
+        if (_state.value.zoomRatio > teleGuard) setZoomRatio(teleGuard)
     }
 
     fun setVideoFps(fps: VideoFpsPreset) {
