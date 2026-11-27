@@ -6289,8 +6289,6 @@ class Camera2Controller(private val context: Context) {
         refreshVideoCapabilities()
         val teleGuard = TeleGuard.maxZoom(_state.value.captureMode == CaptureMode.VIDEO, resolution)
         if (_state.value.zoomRatio > teleGuard) setZoomRatio(teleGuard)
-        val teleGuard = TeleGuard.maxZoom(_state.value.captureMode == CaptureMode.VIDEO, resolution)
-        if (_state.value.zoomRatio > teleGuard) setZoomRatio(teleGuard)
     }
 
     fun setVideoFps(fps: VideoFpsPreset) {
