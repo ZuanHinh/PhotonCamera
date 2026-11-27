@@ -10,7 +10,7 @@ object CapCompat {
     private const val KEY_MP = "photo_cap_mp"
 
     fun getMp(context: Context): Int =
-        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getInt(KEY_MP, 0)
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).let { p -> if (p.contains(KEY_MP)) p.getInt(KEY_MP, 0) else (if (android.os.Build.MANUFACTURER.equals("HUAWEI", true) || android.os.Build.MANUFACTURER.equals("HONOR", true)) 8 else 0) }
 
     fun setMp(context: Context, mp: Int) {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putInt(KEY_MP, mp).apply()
