@@ -9,8 +9,7 @@ object TeleGuard {
         if (java.io.File("/sdcard/Android/data/com.hinnka.mycamera.debug/files/noguard.txt").exists()) return Float.MAX_VALUE
         val maker = android.os.Build.MANUFACTURER
         val huawei = maker.equals("HUAWEI", true) || maker.equals("HONOR", true)
-        val large = resolution == VideoResolutionPreset.UHD_2160P ||
-            resolution == VideoResolutionPreset.UHD_3648
+        val large = resolution == VideoResolutionPreset.UHD_2160P
         return if (huawei && isVideo && large) MAX_ZOOM else Float.MAX_VALUE
     }
 }
