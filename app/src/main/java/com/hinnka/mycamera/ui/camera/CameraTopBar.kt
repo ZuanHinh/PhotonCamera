@@ -247,7 +247,7 @@ private fun VideoParameterCluster(
         ) {
             val resLabel = when (videoConfig.resolution) {
                 VideoResolutionPreset.UHD_2160P -> "4K"
-                VideoResolutionPreset.UHD_3648 -> "3.6K"
+                VideoResolutionPreset.UHD_3648 -> "3.2K"
                 VideoResolutionPreset.FHD_1080P -> "1080p"
                 VideoResolutionPreset.HD_720P -> "720p"
             }

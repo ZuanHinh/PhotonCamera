@@ -164,7 +164,7 @@ object VideoCapabilitiesResolver {
         val targetAspect = aspectRatio.getPortraitAspectRatio(openGatePortraitAspectRatio)
         if (preset == VideoResolutionPreset.UHD_3648) {
             return outputSizes
-                .filter { it.width.toLong() * it.height.toLong() <= 8_000_000L }
+                .filter { it.width <= 3264 }
                 .filter { maxOf(it.width, it.height) >= 3200 }
                 .filter { abs(getPortraitAspectRatio(it) - targetAspect) < 0.02f }
                 .maxByOrNull { it.width.toLong() * it.height.toLong() }

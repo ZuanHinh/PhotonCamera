@@ -51,7 +51,7 @@ enum class VideoResolutionPreset(
     val longEdge: Int
 ) {
     UHD_2160P("2160p", 2160, 3840),
-    UHD_3648("3.6K", 2056, 3648),
+    UHD_3648("3.2K", 1840, 3264),
     FHD_1080P("1080p", 1080, 1920),
     HD_720P("720p", 720, 1280);
 
