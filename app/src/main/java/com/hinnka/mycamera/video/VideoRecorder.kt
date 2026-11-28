@@ -154,8 +154,11 @@ class VideoRecorder(
     val usesDedicatedCameraInput: Boolean
         get() = isRecording
 
+    private val directTest: Boolean
+        get() = java.io.File(context.getExternalFilesDir(null), "direct.txt").exists()
+
     val cameraInputSurface: Surface?
-        get() = renderer?.inputSurface.takeIf {
+        get() = (if (directTest) inputSurface else renderer?.inputSurface).takeIf {
             isRecording && !stopRequested
         }
 
@@ -320,6 +323,7 @@ class VideoRecorder(
     }
 
     private fun initializeRealtimeRenderer() {
+        if (directTest) return
         val encoderSurface = inputSurface ?: throw IllegalStateException("Video encoder input surface is not prepared")
         val encoderColorConfig = preparedEncoderColorConfig ?: VideoEncoderColorConfig.sdrDisplay()
         val realtimeRenderer = RealtimeVideoRenderer(
@@ -375,8 +379,8 @@ class VideoRecorder(
 
     private fun prepareVideoEncoder() {
         if (videoEncoder != null && inputSurface != null) return
-        val width = requestedSize.width
-        val height = requestedSize.height
+        val width = if (directTest) requestedCameraInputSize.width else requestedSize.width
+        val height = if (directTest) requestedCameraInputSize.height else requestedSize.height
         val videoBitrate = (requestedBitrateMbps * 1_000_000).coerceIn(2_000_000, 300_000_000)
 
         videoEncoder = MediaCodec.createEncoderByType(requestedCodecMime).apply {
