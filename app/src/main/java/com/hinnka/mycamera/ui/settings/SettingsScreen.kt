@@ -1177,6 +1177,12 @@ fun SettingsScreen(
                             onFocalLengthSelected = { viewModel.setDefaultFocalLength(it) }
                         )
 
+                        HorizontalDivider(
+                            color = Color.White.copy(alpha = 0.1f),
+                            modifier = Modifier.padding(vertical = 8.dp)
+                        )
+                        PhotoCapSetting()
+
                         if (mainCameraIdOptions.size > 1) {
                             HorizontalDivider(
                                 color = Color.White.copy(alpha = 0.1f),
